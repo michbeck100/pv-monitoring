@@ -1,0 +1,167 @@
+version: "3"
+services:
+  grafana:
+    image: grafana/grafana:8.5.5
+    container_name: grafana
+    depends_on:
+      - renderer
+      - influxdb
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana:/var/lib/grafana
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    environment:
+      - TZ=Europe/Berlin
+      - GF_INSTALL_PLUGINS=fetzerch-sunandmoon-datasource,grafana-clock-panel
+      - GF_DEFAULT_FORCE_MIGRATION=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=smtp.googlemail.com:587
+      - GF_SMTP_USER=myuser
+      - GF_SMTP_PASSWORD=mypassword
+      - GF_SMTP_FROM_ADDRESS=grafana@gmail.com
+      - GF_RENDERING_SERVER_URL=http://renderer:8081/render
+      - GF_RENDERING_CALLBACK_URL=http://grafana:3000/
+      - GF_SERVER_DOMAIN=localhost
+      - GF_SERVER_ROOT_URL=http://localhost:3000
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/pv-monitoring.json
+    links:
+      - renderer:renderer
+      - influxdb:influxdb
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.entrypoints=http"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.mydomain.com`)"
+      - "traefik.http.services.grafana.loadbalancer.server.port=3000"
+
+  renderer:
+    image: adejong/grafana-image-renderer-pi:1.0.8-beta2
+    container_name: renderer
+    restart: unless-stopped
+    expose:
+      - 8081
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=false"
+
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    restart: always
+    expose:
+      - 8086
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb:/var/lib/influxdb
+      - ./influxdb/influxdb-init.iql:/docker-entrypoint-initdb.d/influxdb-init.iql
+    environment:
+      - INFLUXDB_DB=telegraf
+      - INFLUXDB_USER=telegraf
+      - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=secret
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=token
+      - TZ=Europe/Berlin
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=false"
+
+  telegraf:
+    image: telegraf
+    container_name: telegraf
+    restart: unless-stopped
+    environment:
+      HOST_PROC: /rootfs/proc
+      HOST_SYS: /rootfs/sys
+      HOST_ETC: /rootfs/etc
+      TZ: Europe/Berlin
+    volumes:
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys:/rootfs/sys:ro
+      - /proc:/rootfs/proc:ro
+      - /etc:/rootfs/etc:ro
+    links:
+      - influxdb:influxdb
+      - mosquitto:mosquitto
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=false"
+
+  node-red:
+    build: node-red
+    container_name: node-red
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - "1880:1880"
+    volumes:
+      - node-red:/data
+      - ./node-red/flows.json:/data/flows.json
+    links:
+      - influxdb:influxdb
+      - telegraf:telegraf
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.node-red.entrypoints=http"
+      - "traefik.http.routers.node-red.rule=Host(`node-red.domain.com`)"
+      - "traefik.http.services.node-red.loadbalancer.server.port=1880"
+
+  sungather:
+    image: michbeck100/sungather:latest
+    container_name: sungather
+    restart: unless-stopped
+    volumes:
+      - ./sungather/config.yaml:/config/config.yaml
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - "8080:8080"
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sungather.entrypoints=http"
+      - "traefik.http.routers.sungather.rule=Host(`sungather.domain.com`)"
+      - "traefik.http.services.sungather.loadbalancer.server.port=8080"
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto-data:/mosquitto/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mosquitto.entrypoints=http"
+      - "traefik.http.routers.mosquitto.rule=Host(`mqtt.domain.com`)"
+      - "traefik.http.services.mosquitto.loadbalancer.server.port=1883"
+    networks:
+      - monitoring
+
+volumes:
+  influxdb:
+  grafana:
+  node-red:
+  mosquitto-data:
+
+networks:
+  monitoring:
+    external: true

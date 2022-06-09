@@ -1,0 +1,1615 @@
+[
+  {
+    "id": "75b7bfa1.2292d8",
+    "type": "tab",
+    "label": "solcast API",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "300df13e.6c1c7e",
+    "type": "tab",
+    "label": "solcast Measurements",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "e07787.cd769878",
+    "type": "influxdb",
+    "hostname": "influxdb",
+    "port": "8086",
+    "protocol": "http",
+    "database": "telegraf",
+    "name": "telegraf",
+    "usetls": false,
+    "tls": "",
+    "influxdbVersion": "1.x",
+    "url": "http://influxdb:8086",
+    "rejectUnauthorized": false
+  },
+  {
+    "id": "efe3748c.60672",
+    "type": "position-config",
+    "name": "Location",
+    "isValide": "true",
+    "longitude": "8.1505237",
+    "latitude": "53.1439983",
+    "angleType": "deg",
+    "timeZoneOffset": "99",
+    "timeZoneDST": "0",
+    "stateTimeFormat": "3",
+    "stateDateFormat": "12"
+  },
+  {
+    "id": "2ab265d7.5f5f4a",
+    "type": "http request",
+    "z": "75b7bfa1.2292d8",
+    "name": "Solcast API - get Live+Forecast JSON",
+    "method": "GET",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "https://api.solcast.com.au/rooftop_sites/7d0a-8650-6576-19b1/forecasts?format=json",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "bearer",
+    "x": 922,
+    "y": 460,
+    "wires": [
+      [
+        "fba4acf6.6a4a98"
+      ]
+    ]
+  },
+  {
+    "id": "e534a337.18eb68",
+    "type": "debug",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1390,
+    "y": 520,
+    "wires": []
+  },
+  {
+    "id": "cccfd908.2cbb38",
+    "type": "http request",
+    "z": "75b7bfa1.2292d8",
+    "name": "Solcast API - get Past + Estimated Actuals",
+    "method": "GET",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "https://api.solcast.com.au/rooftop_sites/7d0a-8650-6576-19b1/estimated_actuals?format=json",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "bearer",
+    "x": 720,
+    "y": 320,
+    "wires": [
+      [
+        "fba4acf6.6a4a98"
+      ]
+    ]
+  },
+  {
+    "id": "fba4acf6.6a4a98",
+    "type": "switch",
+    "z": "75b7bfa1.2292d8",
+    "name": "StatusCode",
+    "property": "statusCode",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "200",
+        "vt": "num"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 1199,
+    "y": 460,
+    "wires": [
+      [
+        "b4da10ba.2c7918"
+      ],
+      [
+        "e534a337.18eb68",
+        "1fd06f0b.a66b21"
+      ]
+    ]
+  },
+  {
+    "id": "589e1417.997bf4",
+    "type": "split",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "splt": "\\n",
+    "spltType": "str",
+    "arraySplt": 1,
+    "arraySpltType": "len",
+    "stream": false,
+    "addname": "",
+    "x": 867,
+    "y": 160,
+    "wires": [
+      [
+        "58831412.872174"
+      ]
+    ]
+  },
+  {
+    "id": "bd301aae.672708",
+    "type": "join",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "mode": "auto",
+    "build": "string",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 1234,
+    "y": 159,
+    "wires": [
+      [
+        "97d7ebe8.b5fa7"
+      ]
+    ]
+  },
+  {
+    "id": "58831412.872174",
+    "type": "change",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "[[\t{\"value\": $.payload.pv_estimate * 1000,\t\"time\": $toMillis($.payload.period_end)},\t{\"topic\": \"pv_estimate\"}\t]\t]",
+        "tot": "jsonata"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1027,
+    "y": 160,
+    "wires": [
+      [
+        "bd301aae.672708",
+        "8118a103.e02b"
+      ]
+    ]
+  },
+  {
+    "id": "8118a103.e02b",
+    "type": "influxdb out",
+    "z": "75b7bfa1.2292d8",
+    "influxdb": "e07787.cd769878",
+    "name": "solcast",
+    "measurement": "solcast",
+    "precision": "ms",
+    "retentionPolicy": "weekly",
+    "database": "telegraf",
+    "precisionV18FluxV20": "ns",
+    "retentionPolicyV18Flux": "",
+    "org": "",
+    "bucket": "",
+    "x": 1224,
+    "y": 103,
+    "wires": []
+  },
+  {
+    "id": "1dacec32.0cf804",
+    "type": "time-inject",
+    "z": "75b7bfa1.2292d8",
+    "name": "forecasts",
+    "nameInt": "Sonnenaufgang Begin↶ - Sonnenuntergang Ende↷ =... ↻90min",
+    "positionConfig": "efe3748c.60672",
+    "props": [
+      {
+        "p": "",
+        "pt": "msgPayload",
+        "v": "",
+        "vt": "date",
+        "o": "1",
+        "oT": "none",
+        "oM": "60000",
+        "f": 0,
+        "fS": 0,
+        "fT": "Millisekunden UNIX-Zeit",
+        "fI": "0",
+        "next": true,
+        "days": "",
+        "months": "",
+        "onlyOddDays": false,
+        "onlyEvenDays": false
+      },
+      {
+        "p": "",
+        "pt": "msgTopic",
+        "v": "forecasts",
+        "vt": "str",
+        "o": "1",
+        "oT": "none",
+        "oM": "60000",
+        "f": 0,
+        "fS": 0,
+        "fT": "Millisekunden UNIX-Zeit",
+        "fI": "0",
+        "next": false,
+        "days": "",
+        "months": "",
+        "onlyOddDays": false,
+        "onlyEvenDays": false
+      }
+    ],
+    "injectTypeSelect": "interval-time",
+    "intervalCount": "90",
+    "intervalCountType": "num",
+    "intervalCountMultiplier": 60000,
+    "time": "sunriseStart",
+    "timeType": "pdsTime",
+    "offset": "-15",
+    "offsetType": "num",
+    "offsetMultiplier": 60000,
+    "timeEnd": "sunsetEnd",
+    "timeEndType": "pdsTime",
+    "timeEndOffset": "15",
+    "timeEndOffsetType": "num",
+    "timeEndOffsetMultiplier": 60000,
+    "timeDays": "*",
+    "timeOnlyOddDays": false,
+    "timeOnlyEvenDays": false,
+    "timeMonths": "*",
+    "timedatestart": "",
+    "timedateend": "",
+    "property": "",
+    "propertyType": "none",
+    "propertyCompare": "true",
+    "propertyThreshold": "",
+    "propertyThresholdType": "num",
+    "timeAlt": "",
+    "timeAltType": "entered",
+    "timeAltDays": "*",
+    "timeAltOnlyOddDays": false,
+    "timeAltOnlyEvenDays": false,
+    "timeAltMonths": "*",
+    "timeAltOffset": 0,
+    "timeAltOffsetType": "none",
+    "timeAltOffsetMultiplier": 60000,
+    "once": false,
+    "onceDelay": 0.1,
+    "recalcTime": 2,
+    "x": 121,
+    "y": 253,
+    "wires": [
+      [
+        "a117bda9.74495"
+      ]
+    ]
+  },
+  {
+    "id": "1fd06f0b.a66b21",
+    "type": "change",
+    "z": "75b7bfa1.2292d8",
+    "name": "timestamp",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "",
+        "tot": "date"
+      },
+      {
+        "t": "delete",
+        "p": "statusCode",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 750,
+    "y": 380,
+    "wires": [
+      [
+        "29d9e215.6ab5c6"
+      ]
+    ]
+  },
+  {
+    "id": "29d9e215.6ab5c6",
+    "type": "delay",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "pauseType": "delay",
+    "timeout": "3",
+    "timeoutUnits": "minutes",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 640,
+    "y": 460,
+    "wires": [
+      [
+        "ea381660.89b36"
+      ]
+    ]
+  },
+  {
+    "id": "a117bda9.74495",
+    "type": "within-time-switch",
+    "z": "75b7bfa1.2292d8",
+    "name": "neuer Tag?",
+    "nameInt": "",
+    "positionConfig": "efe3748c.60672",
+    "startTime": "sunriseStart",
+    "startTimeType": "pdsTime",
+    "startOffset": "-15",
+    "startOffsetType": "num",
+    "startOffsetMultiplier": 60000,
+    "endTime": "sunsetEnd",
+    "endTimeType": "pdsTime",
+    "endOffset": "60",
+    "endOffsetType": "num",
+    "endOffsetMultiplier": 60000,
+    "timeRestrictions": "",
+    "timeRestrictionsType": "none",
+    "timeDays": "*",
+    "timeOnlyOddDays": false,
+    "timeOnlyEvenDays": false,
+    "timeMonths": "*",
+    "timedatestart": "",
+    "timedateend": "",
+    "propertyStart": "",
+    "propertyStartType": "none",
+    "propertyStartCompare": "true",
+    "propertyStartThreshold": "",
+    "propertyStartThresholdType": "num",
+    "startTimeAlt": "",
+    "startTimeAltType": "entered",
+    "startOffsetAlt": 0,
+    "startOffsetAltType": "none",
+    "startOffsetAltMultiplier": 60000,
+    "propertyEnd": "",
+    "propertyEndType": "none",
+    "propertyEndCompare": "true",
+    "propertyEndThreshold": "",
+    "propertyEndThresholdType": "num",
+    "endTimeAlt": "",
+    "endTimeAltType": "entered",
+    "endOffsetAlt": 0,
+    "endOffsetAltType": "none",
+    "endOffsetAltMultiplier": 60000,
+    "tsCompare": "0",
+    "x": 304,
+    "y": 422,
+    "wires": [
+      [
+        "ea381660.89b36"
+      ],
+      [
+        "bef40a99.f537"
+      ]
+    ]
+  },
+  {
+    "id": "6cc7be2e.a96e88",
+    "type": "inject",
+    "z": "75b7bfa1.2292d8",
+    "name": "forecasts",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "forecasts",
+    "payload": "",
+    "payloadType": "date",
+    "x": 126,
+    "y": 735,
+    "wires": [
+      [
+        "ea381660.89b36"
+      ]
+    ]
+  },
+  {
+    "id": "bef40a99.f537",
+    "type": "change",
+    "z": "75b7bfa1.2292d8",
+    "name": "reset counter",
+    "rules": [
+      {
+        "t": "set",
+        "p": "reset",
+        "pt": "msg",
+        "to": "true",
+        "tot": "bool"
+      },
+      {
+        "t": "set",
+        "p": "topic.reset",
+        "pt": "msg",
+        "to": "reset",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 470,
+    "y": 619,
+    "wires": [
+      [
+        "ea381660.89b36"
+      ]
+    ]
+  },
+  {
+    "id": "ea381660.89b36",
+    "type": "counter",
+    "z": "75b7bfa1.2292d8",
+    "name": "Counter",
+    "init": "0",
+    "step": "1",
+    "lower": "",
+    "upper": "",
+    "mode": "increment",
+    "outputs": "1",
+    "x": 739,
+    "y": 619,
+    "wires": [
+      [
+        "bf77616c.0bf7a",
+        "a8292fb6.68b68"
+      ]
+    ]
+  },
+  {
+    "id": "bab24d26.7b09d",
+    "type": "switch",
+    "z": "75b7bfa1.2292d8",
+    "name": "counter",
+    "property": "count",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "btwn",
+        "v": "1",
+        "vt": "num",
+        "v2": "50",
+        "v2t": "num"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 1109,
+    "y": 619,
+    "wires": [
+      [
+        "15ce129a.6293dd"
+      ],
+      [
+        "e534a337.18eb68"
+      ]
+    ]
+  },
+  {
+    "id": "bf77616c.0bf7a",
+    "type": "change",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "rules": [
+      {
+        "t": "delete",
+        "p": "reset",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 927,
+    "y": 619,
+    "wires": [
+      [
+        "bab24d26.7b09d"
+      ]
+    ]
+  },
+  {
+    "id": "b4da10ba.2c7918",
+    "type": "switch",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "property": "topic",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "estimated_actuals",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "forecasts",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 370,
+    "y": 100,
+    "wires": [
+      [
+        "e5e9c5ea.9edbd8"
+      ],
+      [
+        "88616dab.f106d8"
+      ]
+    ]
+  },
+  {
+    "id": "3f7ca10e.50e90e",
+    "type": "split",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "splt": "\\n",
+    "spltType": "str",
+    "arraySplt": 1,
+    "arraySpltType": "len",
+    "stream": false,
+    "addname": "",
+    "x": 870,
+    "y": 41,
+    "wires": [
+      [
+        "5670dc87.2ae33c"
+      ]
+    ]
+  },
+  {
+    "id": "5670dc87.2ae33c",
+    "type": "change",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "[\t{\"value\": $.payload.pv_estimate * 1000,\t\"time\": $toMillis($.payload.period_end)},\t{\"topic\": \"pv_estimate\"}\t]",
+        "tot": "jsonata"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1032,
+    "y": 41,
+    "wires": [
+      [
+        "eeda49be.8406f8",
+        "8118a103.e02b"
+      ]
+    ]
+  },
+  {
+    "id": "e1060cf6.cef34",
+    "type": "inject",
+    "z": "75b7bfa1.2292d8",
+    "name": "tägl. 02:00Uhr",
+    "props": [
+      {
+        "p": "payload",
+        "v": "",
+        "vt": "date"
+      },
+      {
+        "p": "topic",
+        "v": "Counter_Reset",
+        "vt": "string"
+      }
+    ],
+    "repeat": "",
+    "crontab": "00 02 * * *",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "Counter_Reset",
+    "payload": "",
+    "payloadType": "date",
+    "x": 147,
+    "y": 581,
+    "wires": [
+      [
+        "a117bda9.74495"
+      ]
+    ]
+  },
+  {
+    "id": "4400d3d.2e2e7ac",
+    "type": "time-inject",
+    "z": "75b7bfa1.2292d8",
+    "name": "estimated_actuals",
+    "nameInt": "Sonnenaufgang Begin↷ - Sonnenuntergang Ende↷ =... ↻4h",
+    "positionConfig": "efe3748c.60672",
+    "props": [
+      {
+        "p": "",
+        "pt": "msgPayload",
+        "v": "",
+        "vt": "date",
+        "o": "1",
+        "oT": "none",
+        "oM": "60000",
+        "f": 0,
+        "fS": 0,
+        "fT": "Millisekunden UNIX-Zeit",
+        "fI": "0",
+        "next": true,
+        "days": "",
+        "months": "",
+        "onlyOddDays": false,
+        "onlyEvenDays": false
+      },
+      {
+        "p": "",
+        "pt": "msgTopic",
+        "v": "estimated_actuals",
+        "vt": "str",
+        "o": "1",
+        "oT": "none",
+        "oM": "60000",
+        "f": 0,
+        "fS": 0,
+        "fT": "Millisekunden UNIX-Zeit",
+        "fI": "0",
+        "next": false,
+        "days": "",
+        "months": "",
+        "onlyOddDays": false,
+        "onlyEvenDays": false
+      }
+    ],
+    "injectTypeSelect": "interval-time",
+    "intervalCount": "4",
+    "intervalCountType": "num",
+    "intervalCountMultiplier": 3600000,
+    "time": "sunriseStart",
+    "timeType": "pdsTime",
+    "offset": "90",
+    "offsetType": "num",
+    "offsetMultiplier": 60000,
+    "timeEnd": "sunsetEnd",
+    "timeEndType": "pdsTime",
+    "timeEndOffset": "60",
+    "timeEndOffsetType": "num",
+    "timeEndOffsetMultiplier": 60000,
+    "timeDays": "*",
+    "timeOnlyOddDays": false,
+    "timeOnlyEvenDays": false,
+    "timeMonths": "*",
+    "timedatestart": "",
+    "timedateend": "",
+    "property": "",
+    "propertyType": "none",
+    "propertyCompare": "true",
+    "propertyThreshold": "",
+    "propertyThresholdType": "num",
+    "timeAlt": "",
+    "timeAltType": "entered",
+    "timeAltDays": "*",
+    "timeAltOnlyOddDays": false,
+    "timeAltOnlyEvenDays": false,
+    "timeAltMonths": "*",
+    "timeAltOffset": 0,
+    "timeAltOffsetType": "none",
+    "timeAltOffsetMultiplier": 60000,
+    "once": false,
+    "onceDelay": 0.1,
+    "recalcTime": 2,
+    "x": 150,
+    "y": 180,
+    "wires": [
+      [
+        "a117bda9.74495"
+      ]
+    ]
+  },
+  {
+    "id": "15ce129a.6293dd",
+    "type": "switch",
+    "z": "75b7bfa1.2292d8",
+    "name": "topic",
+    "property": "topic",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "estimated_actuals",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "forecasts",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 490,
+    "y": 372,
+    "wires": [
+      [
+        "cccfd908.2cbb38"
+      ],
+      [
+        "2ab265d7.5f5f4a"
+      ]
+    ]
+  },
+  {
+    "id": "c28a6b0e.6da3d",
+    "type": "inject",
+    "z": "75b7bfa1.2292d8",
+    "name": "estimated_actuals",
+    "props": [
+      {
+        "p": "payload",
+        "v": "",
+        "vt": "date"
+      },
+      {
+        "p": "topic",
+        "v": "estimated_actuals",
+        "vt": "string"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "estimated_actuals",
+    "payload": "",
+    "payloadType": "date",
+    "x": 155,
+    "y": 793,
+    "wires": [
+      [
+        "ea381660.89b36"
+      ]
+    ]
+  },
+  {
+    "id": "2f6077a4.4b903",
+    "type": "comment",
+    "z": "75b7bfa1.2292d8",
+    "name": "Manuelle Abfragen",
+    "info": "",
+    "x": 146,
+    "y": 695,
+    "wires": []
+  },
+  {
+    "id": "2561af8d.cc75a",
+    "type": "comment",
+    "z": "75b7bfa1.2292d8",
+    "name": "Zeitgesteuerte Abfragen",
+    "info": "",
+    "x": 140,
+    "y": 136,
+    "wires": []
+  },
+  {
+    "id": "71f30215.a53b24",
+    "type": "comment",
+    "z": "75b7bfa1.2292d8",
+    "name": "API abfragen",
+    "info": "",
+    "x": 970,
+    "y": 380,
+    "wires": []
+  },
+  {
+    "id": "d4f572ea.7030e8",
+    "type": "comment",
+    "z": "75b7bfa1.2292d8",
+    "name": "InfluxDB füllen",
+    "info": "",
+    "x": 370,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "47d433e5.5af9e4",
+    "type": "comment",
+    "z": "75b7bfa1.2292d8",
+    "name": "1-50 API-Calls pro Tag möglich",
+    "info": "",
+    "x": 895,
+    "y": 580,
+    "wires": []
+  },
+  {
+    "id": "eeda49be.8406f8",
+    "type": "join",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "mode": "auto",
+    "build": "string",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 1234,
+    "y": 41,
+    "wires": [
+      [
+        "97d7ebe8.b5fa7"
+      ]
+    ]
+  },
+  {
+    "id": "97d7ebe8.b5fa7",
+    "type": "debug",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1389,
+    "y": 120,
+    "wires": []
+  },
+  {
+    "id": "88616dab.f106d8",
+    "type": "change",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "rules": [
+      {
+        "t": "move",
+        "p": "payload.forecasts",
+        "pt": "msg",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 660,
+    "y": 160,
+    "wires": [
+      [
+        "589e1417.997bf4"
+      ]
+    ]
+  },
+  {
+    "id": "e5e9c5ea.9edbd8",
+    "type": "change",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "rules": [
+      {
+        "t": "move",
+        "p": "payload.estimated_actuals",
+        "pt": "msg",
+        "to": "payload",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 630,
+    "y": 41,
+    "wires": [
+      [
+        "3f7ca10e.50e90e"
+      ]
+    ]
+  },
+  {
+    "id": "91d8f903.84f1e8",
+    "type": "comment",
+    "z": "75b7bfa1.2292d8",
+    "name": "API-Call Counter rücksetzen",
+    "info": "",
+    "x": 159,
+    "y": 541,
+    "wires": []
+  },
+  {
+    "id": "b7c55be2.28ffa8",
+    "type": "inject",
+    "z": "75b7bfa1.2292d8",
+    "name": "Counter_Reset",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "Counter_Reset",
+    "payload": "",
+    "payloadType": "date",
+    "x": 146,
+    "y": 618,
+    "wires": [
+      [
+        "bef40a99.f537"
+      ]
+    ]
+  },
+  {
+    "id": "a8292fb6.68b68",
+    "type": "debug",
+    "z": "75b7bfa1.2292d8",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": true,
+    "complete": "count",
+    "targetType": "msg",
+    "statusVal": "count",
+    "statusType": "auto",
+    "x": 900,
+    "y": 680,
+    "wires": []
+  },
+  {
+    "id": "6e686d09.024a84",
+    "type": "influxdb in",
+    "z": "300df13e.6c1c7e",
+    "influxdb": "e07787.cd769878",
+    "name": "PV Power PT5M",
+    "query": "",
+    "rawOutput": false,
+    "precision": "",
+    "retentionPolicy": "",
+    "org": "Zuhause",
+    "x": 760,
+    "y": 360,
+    "wires": [
+      [
+        "1ca58173.6cdf77"
+      ]
+    ]
+  },
+  {
+    "id": "cc0b618f.32de6",
+    "type": "inject",
+    "z": "300df13e.6c1c7e",
+    "name": "Request letze Stunde",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "query",
+    "payload": "",
+    "payloadType": "date",
+    "x": 200,
+    "y": 200,
+    "wires": [
+      [
+        "3e79ff51.ccfa"
+      ]
+    ]
+  },
+  {
+    "id": "93cc590e.8854a",
+    "type": "debug",
+    "z": "300df13e.6c1c7e",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1250,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "bd0859e2.b6cf3",
+    "type": "change",
+    "z": "300df13e.6c1c7e",
+    "name": "umbau POST measurements",
+    "rules": [
+      {
+        "t": "set",
+        "p": "measurements",
+        "pt": "msg",
+        "to": "payload",
+        "tot": "msg"
+      },
+      {
+        "t": "delete",
+        "p": "payload",
+        "pt": "msg"
+      },
+      {
+        "t": "set",
+        "p": "payload.measurements",
+        "pt": "msg",
+        "to": "measurements",
+        "tot": "msg"
+      },
+      {
+        "t": "delete",
+        "p": "measurements",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1180,
+    "y": 420,
+    "wires": [
+      [
+        "5bd96bd4.438b6c"
+      ]
+    ]
+  },
+  {
+    "id": "1ca58173.6cdf77",
+    "type": "split",
+    "z": "300df13e.6c1c7e",
+    "name": "",
+    "splt": "\\n",
+    "spltType": "str",
+    "arraySplt": 1,
+    "arraySpltType": "len",
+    "stream": false,
+    "addname": "",
+    "x": 690,
+    "y": 540,
+    "wires": [
+      [
+        "e6a0f12a.2a484"
+      ]
+    ]
+  },
+  {
+    "id": "8e86ae06.c8a528",
+    "type": "join",
+    "z": "300df13e.6c1c7e",
+    "name": "",
+    "mode": "auto",
+    "build": "string",
+    "property": "payload",
+    "propertyType": "msg",
+    "key": "topic",
+    "joiner": "\\n",
+    "joinerType": "str",
+    "accumulate": false,
+    "timeout": "",
+    "count": "",
+    "reduceRight": false,
+    "reduceExp": "",
+    "reduceInit": "",
+    "reduceInitType": "",
+    "reduceFixup": "",
+    "x": 1090,
+    "y": 540,
+    "wires": [
+      [
+        "bd0859e2.b6cf3"
+      ]
+    ]
+  },
+  {
+    "id": "e6a0f12a.2a484",
+    "type": "change",
+    "z": "300df13e.6c1c7e",
+    "name": "umbau auf solcast payload",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload.period_end",
+        "pt": "msg",
+        "to": "payload.time",
+        "tot": "msg"
+      },
+      {
+        "t": "set",
+        "p": "payload.total_power",
+        "pt": "msg",
+        "to": "payload.mean",
+        "tot": "msg"
+      },
+      {
+        "t": "set",
+        "p": "payload.period",
+        "pt": "msg",
+        "to": "PT5M",
+        "tot": "str"
+      },
+      {
+        "t": "delete",
+        "p": "payload.time",
+        "pt": "msg"
+      },
+      {
+        "t": "delete",
+        "p": "payload.mean",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 894,
+    "y": 540,
+    "wires": [
+      [
+        "8e86ae06.c8a528"
+      ]
+    ]
+  },
+  {
+    "id": "5bd96bd4.438b6c",
+    "type": "http request",
+    "z": "300df13e.6c1c7e",
+    "name": "Solcast API - post measurements",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "https://api.solcast.com.au/rooftop_sites/7d0a-8650-6576-19b1/measurements",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "bearer",
+    "x": 1120,
+    "y": 360,
+    "wires": [
+      [
+        "fc3c96f2.db25f"
+      ]
+    ]
+  },
+  {
+    "id": "fc3c96f2.db25f",
+    "type": "switch",
+    "z": "300df13e.6c1c7e",
+    "name": "StatusCode",
+    "property": "statusCode",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "200",
+        "vt": "num"
+      },
+      {
+        "t": "btwn",
+        "v": "399",
+        "vt": "num",
+        "v2": "501",
+        "v2t": "num"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 3,
+    "x": 1030,
+    "y": 240,
+    "wires": [
+      [
+        "93cc590e.8854a"
+      ],
+      [
+        "93cc590e.8854a"
+      ],
+      [
+        "93cc590e.8854a",
+        "d98e427a.b638f"
+      ]
+    ]
+  },
+  {
+    "id": "d98e427a.b638f",
+    "type": "change",
+    "z": "300df13e.6c1c7e",
+    "name": "timestamp",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "",
+        "tot": "date"
+      },
+      {
+        "t": "delete",
+        "p": "statusCode",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1210,
+    "y": 200,
+    "wires": [
+      [
+        "f2be4e89.854d5"
+      ]
+    ]
+  },
+  {
+    "id": "f2be4e89.854d5",
+    "type": "delay",
+    "z": "300df13e.6c1c7e",
+    "name": "",
+    "pauseType": "delay",
+    "timeout": "5",
+    "timeoutUnits": "minutes",
+    "rate": "1",
+    "nbRateUnits": "1",
+    "rateUnits": "second",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "x": 960,
+    "y": 140,
+    "wires": [
+      [
+        "6022db50.3d020c"
+      ]
+    ]
+  },
+  {
+    "id": "47a87cc2.414a4c",
+    "type": "inject",
+    "z": "300df13e.6c1c7e",
+    "name": "last 25h",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "00 22 * * *",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "query",
+    "payload": "",
+    "payloadType": "date",
+    "x": 160,
+    "y": 380,
+    "wires": [
+      [
+        "6022db50.3d020c"
+      ]
+    ]
+  },
+  {
+    "id": "6022db50.3d020c",
+    "type": "change",
+    "z": "300df13e.6c1c7e",
+    "name": "set msg query",
+    "rules": [
+      {
+        "t": "set",
+        "p": "query",
+        "pt": "msg",
+        "to": "SELECT mean(\"total_dc_power\")  / 1000 FROM \"mqtt_consumer\" WHERE (time >= now()-25h AND time <= now()-7m) GROUP BY time(5m) fill(0)",
+        "tot": "str"
+      },
+      {
+        "t": "delete",
+        "p": "payload",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 380,
+    "wires": [
+      [
+        "6e686d09.024a84"
+      ]
+    ]
+  },
+  {
+    "id": "b887227a.5f88e",
+    "type": "inject",
+    "z": "300df13e.6c1c7e",
+    "name": "between last 48h to last 24h",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "query",
+    "payload": "",
+    "payloadType": "date",
+    "x": 220,
+    "y": 460,
+    "wires": [
+      [
+        "92486f7f.0b95b8"
+      ]
+    ]
+  },
+  {
+    "id": "92486f7f.0b95b8",
+    "type": "change",
+    "z": "300df13e.6c1c7e",
+    "name": "set msg query",
+    "rules": [
+      {
+        "t": "set",
+        "p": "query",
+        "pt": "msg",
+        "to": "SELECT mean(\"total_dc_power\")  / 1000 FROM \"mqtt_consumer\" WHERE (time >= now()-48h AND time <= now()-24h) GROUP BY time(5m) fill(0)",
+        "tot": "str"
+      },
+      {
+        "t": "delete",
+        "p": "payload",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 460,
+    "wires": [
+      [
+        "6e686d09.024a84"
+      ]
+    ]
+  },
+  {
+    "id": "19255404.7b3dac",
+    "type": "inject",
+    "z": "300df13e.6c1c7e",
+    "name": "last 10h",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "query",
+    "payload": "",
+    "payloadType": "date",
+    "x": 150,
+    "y": 540,
+    "wires": [
+      [
+        "475f4c63.04f704"
+      ]
+    ]
+  },
+  {
+    "id": "475f4c63.04f704",
+    "type": "change",
+    "z": "300df13e.6c1c7e",
+    "name": "set msg query",
+    "rules": [
+      {
+        "t": "set",
+        "p": "query",
+        "pt": "msg",
+        "to": "SELECT mean(\"total_dc_power\")  / 1000 FROM \"mqtt_consumer\" WHERE (time >= now()-10h AND time <= now()-7m) GROUP BY time(5m) fill(0)",
+        "tot": "str"
+      },
+      {
+        "t": "delete",
+        "p": "payload",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 540,
+    "wires": [
+      [
+        "6e686d09.024a84"
+      ]
+    ]
+  },
+  {
+    "id": "bddee750.e386b8",
+    "type": "comment",
+    "z": "300df13e.6c1c7e",
+    "name": "zykl.  untertäige Lieferung",
+    "info": "",
+    "x": 190,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "5540d4ae.3c2eec",
+    "type": "comment",
+    "z": "300df13e.6c1c7e",
+    "name": "weitere Abfragen und Lieferung",
+    "info": "",
+    "x": 290,
+    "y": 300,
+    "wires": []
+  },
+  {
+    "id": "3e79ff51.ccfa",
+    "type": "change",
+    "z": "300df13e.6c1c7e",
+    "name": "set msg query",
+    "rules": [
+      {
+        "t": "set",
+        "p": "query",
+        "pt": "msg",
+        "to": "SELECT mean(\"total_dc_power\")  / 1000 FROM \"mqtt_consumer\" WHERE (time >= now()-1h AND time <= now()-7m) GROUP BY time(5m) fill(0)",
+        "tot": "str"
+      },
+      {
+        "t": "delete",
+        "p": "payload",
+        "pt": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 459,
+    "y": 200,
+    "wires": [
+      [
+        "6e686d09.024a84"
+      ]
+    ]
+  },
+  {
+    "id": "1df3f3ae.b805fc",
+    "type": "comment",
+    "z": "300df13e.6c1c7e",
+    "name": "HTTP Response - bei Fehler (!=200) in 5min nochmal versuchen",
+    "info": "",
+    "x": 1090,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "e9b539c3.ae7f9",
+    "type": "comment",
+    "z": "300df13e.6c1c7e",
+    "name": "influx query",
+    "info": "",
+    "x": 810,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "228f5b90.7ecfbc",
+    "type": "comment",
+    "z": "300df13e.6c1c7e",
+    "name": "solcast POST",
+    "info": "",
+    "x": 1110,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "e0611c10.1345c",
+    "type": "comment",
+    "z": "300df13e.6c1c7e",
+    "name": "influx response zu solcast measurements umbauen",
+    "info": "",
+    "x": 870,
+    "y": 500,
+    "wires": []
+  }
+]

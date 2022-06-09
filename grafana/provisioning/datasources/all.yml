@@ -1,0 +1,17 @@
+apiVersion: 1
+datasources:
+  - access: proxy
+    database: telegraf
+    isDefault: true
+    name: InfluxDB
+    secureJsonData:
+      password: $INFLUX_PASSWORD
+    type: influxdb
+    url: http://influxdb:8086
+    user: telegraf
+    version: 1
+  - jsonData:
+      latitude: 53.1439983
+      longitude: 8.1505237
+    name: Sun And Moon
+    type: fetzerch-sunandmoon-datasource
