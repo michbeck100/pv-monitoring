@@ -6,7 +6,7 @@ inverter:
   slave: 0x01                             # [Optional] Default is 0x01
   scan_interval: 10                       # [Optional] Default is 30
   connection: sungrow                     # [Required] options: modbus, sungrow, http
-  model: "SH10RT"                         # [Optional] This is autodetected on startup, only needed if detection issues or for testing
+  # model: "SH10RT"                         # [Optional] This is autodetected on startup, only needed if detection issues or for testing
                                             # See model list here: https://github.com/bohdan-s/SunGather#supported
   smart_meter: True                       # [Optional] Default is False, Set to true if inverter supports reading grind / house consumption
   use_local_time: True                    # [Optional] Default False, Uses Inventer time, if true it uses PC time when updating timestamps (e.g. PVOutput)
