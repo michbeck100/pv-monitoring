@@ -24,8 +24,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 54,
-  "iteration": 1654838636081,
+  "id": 187,
+  "iteration": 1655355699169,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -124,7 +124,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -254,7 +254,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -372,9 +372,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -497,9 +501,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -622,9 +630,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -709,9 +721,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -796,9 +812,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -923,9 +943,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1009,10 +1033,14 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "alias": "PV",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1098,9 +1126,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1188,7 +1220,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "alias": "Entladung",
@@ -1262,9 +1294,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1349,9 +1385,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1473,9 +1513,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1559,9 +1603,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1655,7 +1703,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "alias": "A",
@@ -1770,7 +1818,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "alias": "A",
@@ -1874,9 +1922,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1977,9 +2029,13 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "query": "SELECT last(battery_voltage) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
               "rawQuery": true,
               "refId": "A"
@@ -2033,9 +2089,13 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "query": "SELECT last(battery_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
               "rawQuery": true,
               "refId": "A"
@@ -2089,7 +2149,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
               "datasource": {
@@ -2150,7 +2210,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
               "datasource": {
@@ -2209,9 +2269,13 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2302,9 +2366,13 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2395,9 +2463,13 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2509,10 +2581,14 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
               "alias": "",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2604,7 +2680,7 @@
             "h": 3,
             "w": 4,
             "x": 0,
-            "y": 14
+            "y": 20
           },
           "id": 199,
           "options": {
@@ -2622,9 +2698,13 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2697,7 +2777,7 @@
             "h": 3,
             "w": 4,
             "x": 4,
-            "y": 14
+            "y": 20
           },
           "id": 200,
           "options": {
@@ -2715,9 +2795,13 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2790,7 +2874,7 @@
             "h": 3,
             "w": 4,
             "x": 8,
-            "y": 14
+            "y": 20
           },
           "id": 202,
           "options": {
@@ -2808,10 +2892,14 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
               "alias": "PV",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2885,7 +2973,7 @@
             "h": 3,
             "w": 4,
             "x": 12,
-            "y": 14
+            "y": 20
           },
           "id": 198,
           "options": {
@@ -2903,9 +2991,13 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2978,7 +3070,7 @@
             "h": 3,
             "w": 4,
             "x": 16,
-            "y": 14
+            "y": 20
           },
           "id": 201,
           "options": {
@@ -2996,9 +3088,13 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -3092,7 +3188,7 @@
             "h": 3,
             "w": 2,
             "x": 20,
-            "y": 14
+            "y": 20
           },
           "id": 218,
           "options": {
@@ -3110,10 +3206,14 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
               "alias": "",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -3196,7 +3296,7 @@
             "h": 3,
             "w": 2,
             "x": 22,
-            "y": 14
+            "y": 20
           },
           "hideTimeOverride": true,
           "id": 222,
@@ -3215,7 +3315,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.2",
+          "pluginVersion": "8.5.6",
           "targets": [
             {
               "alias": "",
@@ -4000,6 +4100,7 @@
         },
         {
           "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
             "uid": "P5D498F88B388D93A"
           },
           "refId": "G",
@@ -4081,7 +4182,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4116,6 +4217,10 @@
       "targets": [
         {
           "alias": "Netzbezug",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4154,6 +4259,10 @@
         },
         {
           "alias": "Speicher entladen",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4192,6 +4301,10 @@
         },
         {
           "alias": "Hausverbrauch",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4347,7 +4460,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4382,6 +4495,10 @@
       "targets": [
         {
           "alias": "Netzeinspeisung",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4421,6 +4538,10 @@
         },
         {
           "alias": "Speicher laden",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4459,6 +4580,10 @@
         },
         {
           "alias": "PV-Ertrag",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4702,6 +4827,10 @@
       "targets": [
         {
           "alias": "MPPT 1 Spannung",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4741,6 +4870,10 @@
         },
         {
           "alias": "MPPT 2 Spannung",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4780,6 +4913,10 @@
         },
         {
           "alias": "MPPT 1 Strom",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT mean(mppt_1_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
@@ -4787,6 +4924,10 @@
         },
         {
           "alias": "MPPT 2 Strom",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT mean(mppt_2_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
@@ -5203,6 +5344,10 @@
       "targets": [
         {
           "alias": "PV-Ertrag",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5241,6 +5386,10 @@
         },
         {
           "alias": "PV-Prognose",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5411,6 +5560,10 @@
       "targets": [
         {
           "alias": "PV-Leistung",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5450,6 +5603,10 @@
         },
         {
           "alias": "Netzeinspeisung",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5488,6 +5645,10 @@
         },
         {
           "alias": "Speicher Laden",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5687,6 +5848,10 @@
       "targets": [
         {
           "alias": "Hausverbrauch",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5855,6 +6020,10 @@
       "targets": [
         {
           "alias": "Netzbezug",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5893,6 +6062,10 @@
         },
         {
           "alias": "Speicher Entladen",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5932,6 +6105,10 @@
         },
         {
           "alias": "Hausverbrauch",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6247,7 +6424,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(battery_temp) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
+          "query": "SELECT mean(battery_temperature) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -6376,7 +6553,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(battery_temp) FROM mqtt_consumer WHERE $timeFilter GROUP BY time(10s) fill(linear)",
+          "query": "SELECT mean(battery_temperature) FROM mqtt_consumer WHERE $timeFilter GROUP BY time(10s) fill(linear)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series",
@@ -6921,6 +7098,10 @@
       "pluginVersion": "8.4.3",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "query": "SELECT  mean(battery_power) * mean(battery_charging) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
           "refId": "A"
@@ -7439,7 +7620,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -7457,6 +7638,10 @@
       "targets": [
         {
           "alias": "Phase 1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7496,6 +7681,10 @@
         },
         {
           "alias": "Phase 2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7535,6 +7724,10 @@
         },
         {
           "alias": "Phase 3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7574,6 +7767,10 @@
         },
         {
           "alias": "Netzfrequenz",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT mean(grid_frequency) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
@@ -7715,6 +7912,10 @@
       "targets": [
         {
           "alias": "Hausverbrauch",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7753,6 +7954,10 @@
         },
         {
           "alias": "Netzbezug",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7791,6 +7996,10 @@
         },
         {
           "alias": "PV",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7829,6 +8038,10 @@
         },
         {
           "alias": "Netzeinspeisung",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8044,7 +8257,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -8105,7 +8318,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "alias": "Ersparnis",
@@ -8167,7 +8380,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "alias": "Einspeisung",
@@ -8229,7 +8442,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.2",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "alias": "Netzbezug",
@@ -8392,6 +8605,10 @@
       "targets": [
         {
           "alias": "Hausverbrauch",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8430,6 +8647,10 @@
         },
         {
           "alias": "Netzbezug",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8468,6 +8689,10 @@
         },
         {
           "alias": "Einnahmen",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8661,6 +8886,6 @@
   "timezone": "browser",
   "title": "PV-Monitoring",
   "uid": "l1PwaTigk",
-  "version": 22,
+  "version": 7,
   "weekStart": ""
 }
