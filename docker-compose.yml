@@ -133,12 +133,41 @@ services:
     volumes:
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - mosquitto-data:/mosquitto/data
+    networks:
+      - monitoring
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mosquitto.rule=Host(`mqtt.domain.com`)"
       - "traefik.http.services.mosquitto.loadbalancer.server.port=1883"
+
+  evcc:
+    command:
+      - evcc
+    container_name: evcc
+    entrypoint:
+      - /app/entrypoint.sh
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - TZ=Europe/Berlin
+    image: andig/evcc:latest
+    ipc: private
+    logging:
+      driver: json-file
+      options: {}
+    ports:
+      - 7070:7070/tcp
+    volumes:
+      - ./evcc/evcc.yaml:/etc/evcc.yaml
+    restart: unless-stopped
+    working_dir: /app
+    depends_on:
+      - influxdb
     networks:
       - monitoring
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.evcc.rule=Host(`evcc.domain.com`)"
+      - "traefik.http.services.evcc.loadbalancer.server.port=7070"
 
 volumes:
   influxdb:

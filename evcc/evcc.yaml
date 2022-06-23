@@ -1,0 +1,187 @@
+uri: 0.0.0.0:7070 # uri for ui
+interval: 10s # control cycle interval
+
+# sponsor token enables optional features (request at https://cloud.evcc.io)
+# sponsortoken:
+
+# log settings
+log: info
+levels:
+  core: debug
+  lp-1: debug
+  lp-2: debug
+
+# meter definitions
+# name can be freely chosen and is used as reference when assigning meters to site and loadpoints
+# for examples see https://github.com/evcc-io/config#meters
+meters:
+  - name: grid
+    type: custom
+    power:
+      source: mqtt
+      topic: solar/power/export_power_hybrid
+      scale: -1.0
+  - name: pv
+    type: custom
+    power:
+      source: mqtt
+      topic: solar/power/total_dc_power
+    currents:
+      - source: mqtt
+        topic: solar/power/current/phase_1
+      - source: mqtt
+        topic: solar/power/current/phase_b
+      - source: mqtt
+        topic: solar/power/current/phase_c
+  - name: battery
+    type: custom
+    power:
+      source: mqtt
+      topic: solar/battery/battery_power
+    soc:
+      source: mqtt
+      topic: solar/battery/battery_level
+
+# charger definitions
+# name can be freely chosen and is used as reference when assigning charger to vehicle
+# for examples see https://github.com/evcc-io/config#chargers
+chargers:
+  - name: wallbox
+    type: go-e
+    uri: http://192.168.178.51
+
+# vehicle definitions
+# name can be freely chosen and is used as reference when assigning vehicle to loadpoint
+# for examples see https://github.com/evcc-io/config#vehicles
+#vehicles:
+#- name: car1
+#  type: renault
+#  title: Zoe
+#  capacity: 60 # kWh
+#  user: myuser # user
+#  password: mypassword # password
+#  vin: WREN...
+#  onIdentify: # set defaults when vehicle is identified
+#    minSoC: 20 # charge to at least 20% independent of charge mode
+#    targetSoC: 90 # limit charge to 90%
+
+# site describes the EVU connection, PV and home battery
+site:
+  title: Home
+  meters:
+    grid: grid
+    pvs:
+      - pv
+    battery: battery
+  prioritySoC: # give home battery priority up to this soc (empty to disable)
+  bufferSoC: # ignore home battery discharge above soc (empty to disable)
+
+# loadpoint describes the charger, charge meter and connected vehicle
+loadpoints:
+  - title: Loadpoint
+    charger: wallbox
+    #vehicle: audi
+    # vehicles: # use if multiple vehicles allowed to charge on this loadpoint
+    # - ID.3
+    # - e-Up
+    mode: pv
+    resetOnDisconnect: true # set defaults when vehicle disconnects
+    soc:
+      # polling defines usage of the vehicle APIs
+      # Modifying the default settings it NOT recommended. It MAY deplete your vehicle's battery
+      # or lead to vehicle manufacturer banning you from API use. USE AT YOUR OWN RISK.
+      poll:
+        # poll mode defines under which condition the vehicle API is called:
+        #   charging: update vehicle ONLY when charging (this is the recommended default)
+        #   connected: update vehicle when connected (not only charging), interval defines how often
+        #   always: always update vehicle regardless of connection state, interval defines how often (only supported for single vehicle)
+        mode: charging
+        # poll interval defines how often the vehicle API may be polled if NOT charging
+        interval: 60m
+      min: 20 # immediately charge to 0% regardless of mode unless "off" (disabled)
+      target: 100 # always charge to 100%
+      estimate: false # set true to interpolate between api updates
+    phases: 3 # ev phases (default 3)
+    enable: # pv mode enable behavior
+      delay: 1m # threshold must be exceeded for this long
+      threshold: 0 # grid power threshold (in Watts, negative=export). If zero, export must exceed minimum charge power to enable
+    disable: # pv mode disable behavior
+      delay: 10m # threshold must be exceeded for this long
+      threshold: 200 # maximum import power (W)
+    guardDuration: 5m # switch charger contactor not more often than this (default 10m)
+    minCurrent: 6 # minimum charge current (default 6A)
+    maxCurrent: 16 # maximum charge current (default 16A)
+
+# tariffs are the fixed or variable tariffs
+# cheap (tibber/awattar) can be used to define a tariff rate considered cheap enough for charging
+tariffs:
+  currency: EUR # three letter ISO-4217 currency code (default EUR)
+  grid:
+    # either static grid price
+    type: fixed
+    price: 0.294 # EUR/kWh
+
+    # # or variable via tibber
+    # type: tibber
+    # cheap: 0.2 # EUR/kWh
+    # token: "476c477d8a039529478ebd690d35ddd80e3308ffc49b59c65b142321aee963a4" # access token
+    # homeid: "cc83e83e-8cbf-4595-9bf7-c3cf192f7d9c" # optional if multiple homes associated to account
+
+    # # or variable via awattar
+    # type: awattar
+    # cheap: 0.2 # EUR/kWh
+    # region: de # optional, choose at for Austria
+  feedin:
+    # rate for feeding excess (pv) energy to the grid
+    type: fixed
+    price: 0.075 # EUR/kWh
+
+# mqtt message broker
+mqtt:
+  broker: mosquitto:1883
+  topic: evcc # root topic for publishing, set empty to disable
+# user:
+# password:
+
+# influx database
+influx:
+  url: http://influxdb:8086
+  database: monitoring
+  # user:
+  # password:
+
+# eebus credentials
+eebus:
+# uri: # :4712
+# interfaces: # limit eebus to specific network interfaces
+# - en0
+# certificate: # local signed certificate, required, can be generated via `evcc eebus-cert`
+#   public: # public key
+#   private: # private key
+
+# push messages
+messaging:
+  events:
+    start: # charge start event
+      title: Charge started
+      msg: Started charging in "${mode}" mode
+    stop: # charge stop event
+      title: Charge finished
+      msg: Finished charging ${chargedEnergy:%.1fk}kWh in ${chargeDuration}.
+    connect: # vehicle connect event
+      title: Car connected
+      msg: "Car connected at ${pvPower:%.1fk}kW PV"
+    disconnect: # vehicle connected event
+      title: Car disconnected
+      msg: Car disconnected after ${connectedDuration}
+  services:
+  # - type: pushover
+  #   app: # app id
+  #   recipients:
+  #   - # list of recipient ids
+  # - type: telegram
+  #   token: # bot id
+  #   chats:
+  #   - # list of chat ids
+  # - type: email
+  #   uri: smtp://<user>:<password>@<host>:<port>/?fromAddress=<from>&toAddresses=<to>
