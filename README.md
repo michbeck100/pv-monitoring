@@ -3,11 +3,36 @@ Contains configuration and Grafana dashboard for monitoring PV inverters
 
 ![image](https://user-images.githubusercontent.com/5385572/173031897-37c5142d-9833-498f-9164-3ff7561b8e31.png)
 
+## Tools
+
+This setup uses 
+- [Grafana](https://grafana.com) (for visualization)
+- [grafana-image-renderer](https://grafana.com/grafana/plugins/grafana-image-renderer/) (to render screenshots for alerts)
+- [InfluxDB](https://www.influxdata.com/products/influxdb-overview/) (time series database) 
+- [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) (reads from mqtt and writes to influx)
+- [Node-RED](https://nodered.org) (processes pv forecast data)
+- [SunGather](https://sungather.app) (collects data from inverters using Modbus)
+- [Mosquitto](https://mosquitto.org) (MQTT broker)
+- [evcc](https://evcc.io) (controls EV charger)
+
 ## Supported inverters
 Since the setup is using SunGather to read the modbus registers, currently only Sungrow Inverters are supported. See the list on the projects website: https://sungather.app
 
-## Setup 
+## Setup
+### Grafana 
+The default credentials for Grafana after first start are admin:admin. You can change the password after login.
+
+The dashboard uses different variables for calculating your costs and savings:
+- `strompreis`: your current grid price
+- `verguetung`: rate for feeding excess (pv) energy to the grid (german: Einspeisevergütung)
+
+### SunGather
 You must set your inverters ip address at [sungather/config.yaml](https://github.com/michbeck100/pv-monitoring/blob/main/sungather/config.yaml). For additional configuration of SunGather please see the project website.
+
+### evcc
+evcc is configured to get the inverter data by mqtt. So there is no change needed. 
+
+But you must setup your wallbox according to https://docs.evcc.io/docs/devices/chargers in [evcc/evcc.yaml](https://github.com/michbeck100/pv-monitoring/blob/main/evcc/evcc.yaml).
 
 ## PV Forecasts
 This monitoring solution also supports PV forecasts from [Solcast](https://toolkit.solcast.com.au/live-forecast). To use it, create an account and replace `<ENTER_YOUR_SITE_RESOURCE_ID_HERE>` with your own site resource id and enter your API Token in Node-Red (should be at http://localhost:1880).

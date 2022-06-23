@@ -134,7 +134,7 @@ tariffs:
   feedin:
     # rate for feeding excess (pv) energy to the grid
     type: fixed
-    price: 0.075 # EUR/kWh
+    price: 0.0711 # EUR/kWh
 
 # mqtt message broker
 mqtt:
