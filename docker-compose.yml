@@ -29,14 +29,10 @@ services:
       - GF_SERVER_DOMAIN=localhost
       - GF_SERVER_ROOT_URL=http://localhost:3000
       - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/pv-monitoring.json
-    links:
-      - renderer:renderer
-      - influxdb:influxdb
     networks:
       - monitoring
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.grafana.entrypoints=http"
       - "traefik.http.routers.grafana.rule=Host(`grafana.mydomain.com`)"
       - "traefik.http.services.grafana.loadbalancer.server.port=3000"
 
@@ -63,12 +59,7 @@ services:
       - influxdb:/var/lib/influxdb
       - ./influxdb/influxdb-init.iql:/docker-entrypoint-initdb.d/influxdb-init.iql
     environment:
-      - INFLUXDB_DB=telegraf
-      - INFLUXDB_USER=telegraf
-      - INFLUXDB_ADMIN_ENABLED=true
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=secret
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=token
+      - INFLUXDB_DB=monitoring
       - TZ=Europe/Berlin
     networks:
       - monitoring
@@ -90,9 +81,8 @@ services:
       - /sys:/rootfs/sys:ro
       - /proc:/rootfs/proc:ro
       - /etc:/rootfs/etc:ro
-    links:
-      - influxdb:influxdb
-      - mosquitto:mosquitto
+    depends_on:
+      - influxdb
     networks:
       - monitoring
     labels:
@@ -109,14 +99,10 @@ services:
     volumes:
       - node-red:/data
       - ./node-red/flows.json:/data/flows.json
-    links:
-      - influxdb:influxdb
-      - telegraf:telegraf
     networks:
       - monitoring
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.node-red.entrypoints=http"
       - "traefik.http.routers.node-red.rule=Host(`node-red.domain.com`)"
       - "traefik.http.services.node-red.loadbalancer.server.port=1880"
 
@@ -134,7 +120,6 @@ services:
       - monitoring
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sungather.entrypoints=http"
       - "traefik.http.routers.sungather.rule=Host(`sungather.domain.com`)"
       - "traefik.http.services.sungather.loadbalancer.server.port=8080"
 
@@ -150,7 +135,6 @@ services:
       - mosquitto-data:/mosquitto/data
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mosquitto.entrypoints=http"
       - "traefik.http.routers.mosquitto.rule=Host(`mqtt.domain.com`)"
       - "traefik.http.services.mosquitto.loadbalancer.server.port=1883"
     networks:

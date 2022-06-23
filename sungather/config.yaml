@@ -39,7 +39,7 @@ exports:
     # username:                             # [Optional] Username if not using token
     # password:                             # [Optional] Password if not using token
     org: "Default"                          # [Required] InfluxDB Organization (for influxdb v1.8x this will be ignored)
-    bucket: "SunGather"                     # [Required] InfluxDB Bucket (for influxdb v1.8x this is the database name)
+    bucket: "monitoring"                    # [Required] InfluxDB Bucket (for influxdb v1.8x this is the database name)
     measurements:                           # [Required] Registers to publish to bucket
       - point: "power"
         register: daily_power_yields
