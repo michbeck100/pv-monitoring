@@ -26,6 +26,8 @@ The dashboard uses different variables for calculating your costs and savings:
 - `strompreis`: your current grid price
 - `verguetung`: rate for feeding excess (pv) energy to the grid (german: Einspeisevergütung)
 
+To enable seding alerts via email you must configure your SMTP provider in the environment variables starting with `GF_SMTP_` in [docker-compose.yml](https://github.com/michbeck100/pv-monitoring/blob/main/docker-compose.yml)
+
 ### SunGather
 You must set your inverters ip address at [sungather/config.yaml](https://github.com/michbeck100/pv-monitoring/blob/main/sungather/config.yaml). For additional configuration of SunGather please see the project website.
 
@@ -40,6 +42,8 @@ This monitoring solution also supports PV forecasts from [Solcast](https://toolk
 Example:
 ![image](https://user-images.githubusercontent.com/5385572/173027877-88590e77-4d7d-4860-8444-885d2dd433eb.png)
 
+## Traefik
+This setup adds labels to every container with a ui for [traefik](https://doc.traefik.io/traefik/). You only have to set your preferred host name in `traefik.http.routers.<CONTAINER>.rule=Host` in [docker-compose.yml](https://github.com/michbeck100/pv-monitoring/blob/main/docker-compose.yml).
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
