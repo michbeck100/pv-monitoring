@@ -28,6 +28,8 @@ The dashboard uses different variables for calculating your costs and savings:
 
 To enable seding alerts via email you must configure your SMTP provider in the environment variables starting with `GF_SMTP_` in [docker-compose.yml](https://github.com/michbeck100/pv-monitoring/blob/main/docker-compose.yml)
 
+The current setup assumes that it's running on an ARM based architecture. If you are using x86 hardware, make sure to use the official image as described [here](https://github.com/grafana/grafana-image-renderer#run-in-docker).
+
 ### SunGather
 You must set your inverters ip address at [sungather/config.yaml](https://github.com/michbeck100/pv-monitoring/blob/main/sungather/config.yaml). For additional configuration of SunGather please see the project website.
 
