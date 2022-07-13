@@ -169,11 +169,30 @@ services:
       - "traefik.http.routers.evcc.rule=Host(`evcc.${HOST}`)"
       - "traefik.http.services.evcc.loadbalancer.server.port=7070"
 
+  iobroker:
+    container_name: iobroker
+    image: iobroker/iobroker:latest-v7
+    hostname: iobroker
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - "8081:8081"
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.iobroker.rule=Host(`iobroker.${HOST}`)"
+      - "traefik.http.services.iobroker.loadbalancer.server.port=8081"
+    volumes:
+      - iobrokerdata:/opt/iobroker
+
 volumes:
   influxdb:
   grafana:
   node-red:
   mosquitto-data:
+  iobrokerdata:
 
 networks:
   monitoring:
