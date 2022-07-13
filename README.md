@@ -19,6 +19,10 @@ This setup uses
 Since the setup is using SunGather to read the modbus registers, currently only Sungrow Inverters are supported. See the list on the projects website: https://sungather.app
 
 ## Setup
+### .env
+
+Copy `.env-sample` to `.env` and modify the variables before running docker compose.
+
 ### Grafana 
 The default credentials for Grafana after first start are admin:admin. You can change the password after login.
 
