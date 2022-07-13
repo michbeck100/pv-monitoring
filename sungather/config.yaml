@@ -61,7 +61,7 @@ exports:
     enabled: True                           # [Optional] Default is False
     host: mosquitto                         # [Required] IP or Hostname of MQTT Server
     # port: 1883                            # [Optional] Default 1883
-    # topic: "inverter/{model}/registers"   # [Optional] Default: "inverter/{model}/registers", Variable {model} will be replaced with model number of inverter
+    topic: "inverter/sungrow/registers"     # [Optional] Default: "inverter/{model}/registers", Variable {model} will be replaced with model number of inverter
     # username:                             # [Optional] Username is MQTT server requires it
     # password:                             # [Optional] Password is MQTT server requires it
     homeassistant: True                     # [Optional] Default False, Publish discovery and sensors for HomeAssistant
