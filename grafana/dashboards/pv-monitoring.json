@@ -25,7 +25,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 187,
-  "iteration": 1655355699169,
+  "iteration": 1658813557678,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -124,7 +124,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -254,7 +254,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -372,7 +372,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -501,7 +501,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -525,7 +525,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(battery_power) * last(battery_charging) FROM mqtt_consumer fill(previous)",
+          "query": "SELECT last(battery_power) * last(state_battery_charging) FROM mqtt_consumer fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -630,7 +630,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -721,7 +721,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -812,7 +812,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -943,7 +943,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1033,7 +1033,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "alias": "PV",
@@ -1126,7 +1126,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1220,7 +1220,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "alias": "Entladung",
@@ -1240,7 +1240,7 @@
             "uid": "P951FEA4DE68E13C5"
           },
           "hide": false,
-          "query": "SELECT (5120 - 5120 * battery_level / 100) * 3600 / battery_power  FROM (SELECT last(battery_level) as battery_level, last(battery_power) as battery_power, last(battery_voltage) as battery_voltage, last(battery_current) as battery_current, last(battery_charging) as battery_charging FROM mqtt_consumer) where  battery_charging = 1",
+          "query": "SELECT (5120 - 5120 * battery_level / 100) * 3600 / battery_power  FROM (SELECT last(battery_level) as battery_level, last(battery_power) as battery_power, last(battery_voltage) as battery_voltage, last(battery_current) as battery_current, last(state_battery_charging) as state_battery_charging FROM mqtt_consumer) where  state_battery_charging = 1",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series"
@@ -1294,7 +1294,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1385,7 +1385,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1513,7 +1513,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1537,7 +1537,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(battery_power) * last(battery_charging) FROM mqtt_consumer WHERE time > now()-1d group by time($__interval) fill(previous)",
+          "query": "SELECT last(battery_power) * last(state_battery_charging) FROM mqtt_consumer WHERE time > now()-1d group by time($__interval) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1603,7 +1603,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -1703,7 +1703,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "alias": "A",
@@ -1818,7 +1818,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "alias": "A",
@@ -1922,7 +1922,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "targets": [
         {
           "datasource": {
@@ -3904,7 +3904,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(battery_power) FROM $rp.mqtt_consumer WHERE battery_charging = 1 AND $timeFilter GROUP BY time(30s) fill(0)",
+          "query": "SELECT mean(battery_power) FROM $rp.mqtt_consumer WHERE state_battery_charging = 1 AND $timeFilter GROUP BY time(30s) fill(0)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series",
@@ -3948,7 +3948,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(battery_power)  FROM $rp.mqtt_consumer WHERE battery_discharging = 1 AND $timeFilter GROUP BY time(30s) fill(0)",
+          "query": "SELECT mean(battery_power)  FROM $rp.mqtt_consumer WHERE state_battery_discharging = 1 AND $timeFilter GROUP BY time(30s) fill(0)",
           "rawQuery": true,
           "refId": "H",
           "resultFormat": "time_series",
@@ -4152,7 +4152,8 @@
       },
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "links": [],
+          "unit": "watt"
         },
         "overrides": []
       },
@@ -4182,7 +4183,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4404,7 +4405,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:232",
-          "format": "short",
+          "format": "watt",
           "logBase": 1,
           "show": true
         },
@@ -4430,7 +4431,8 @@
       },
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "links": [],
+          "unit": "watt"
         },
         "overrides": []
       },
@@ -4460,7 +4462,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4558,7 +4560,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(battery_power) FROM $rp.mqtt_consumer WHERE battery_charging = 1 AND $timeFilter GROUP BY time($__interval) fill(0)",
+          "query": "SELECT mean(battery_power) FROM $rp.mqtt_consumer WHERE state_battery_charging = 1 AND $timeFilter GROUP BY time($__interval) fill(0)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -4684,7 +4686,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:1659",
-          "format": "short",
+          "format": "watt",
           "logBase": 1,
           "show": true
         },
@@ -7102,7 +7104,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "SELECT  mean(battery_power) * mean(battery_charging) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
+          "query": "SELECT  mean(battery_power) * mean(state_battery_charging) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
           "refId": "A"
         }
@@ -7620,7 +7622,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -8231,7 +8233,7 @@
               }
             ]
           },
-          "unit": "currencyEUR"
+          "unit": "€"
         },
         "overrides": []
       },
@@ -8249,7 +8251,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -8257,7 +8259,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.0",
       "targets": [
         {
           "datasource": {
@@ -8292,7 +8294,7 @@
               }
             ]
           },
-          "unit": "currencyEUR"
+          "unit": "€"
         },
         "overrides": []
       },
@@ -8318,7 +8320,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.0",
       "targets": [
         {
           "alias": "Ersparnis",
@@ -8354,7 +8356,7 @@
               }
             ]
           },
-          "unit": "currencyEUR"
+          "unit": "€"
         },
         "overrides": []
       },
@@ -8380,7 +8382,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.0",
       "targets": [
         {
           "alias": "Einspeisung",
@@ -8416,7 +8418,7 @@
               }
             ]
           },
-          "unit": "currencyEUR"
+          "unit": "€"
         },
         "overrides": []
       },
@@ -8442,7 +8444,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.0.0",
       "targets": [
         {
           "alias": "Netzbezug",
@@ -8886,6 +8888,6 @@
   "timezone": "browser",
   "title": "PV-Monitoring",
   "uid": "l1PwaTigk",
-  "version": 7,
+  "version": 10,
   "weekStart": ""
 }

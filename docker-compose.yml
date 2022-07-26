@@ -172,7 +172,6 @@ services:
   iobroker:
     container_name: iobroker
     image: iobroker/iobroker:latest-v7
-    hostname: iobroker
     restart: unless-stopped
     environment:
       - TZ=Europe/Berlin
