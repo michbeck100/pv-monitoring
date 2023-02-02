@@ -37,7 +37,7 @@
       "type": "datasource",
       "id": "fetzerch-sunandmoon-datasource",
       "name": "Sun and Moon",
-      "version": "0.2.1"
+      "version": "0.3.0"
     },
     {
       "type": "panel",
@@ -49,7 +49,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "9.0.5"
+      "version": "9.1.1"
     },
     {
       "type": "panel",
@@ -67,6 +67,12 @@
       "type": "panel",
       "id": "stat",
       "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "state-timeline",
+      "name": "State timeline",
       "version": ""
     },
     {
@@ -200,7 +206,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -330,7 +336,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -448,7 +454,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -577,7 +583,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -706,7 +712,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -797,7 +803,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -888,7 +894,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -1019,7 +1025,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -1109,7 +1115,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "alias": "PV",
@@ -1202,7 +1208,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -1296,7 +1302,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "alias": "Entladung",
@@ -1370,7 +1376,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -1461,7 +1467,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -1589,7 +1595,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -1679,7 +1685,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -1758,7 +1764,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 3,
+        "w": 2,
         "x": 16,
         "y": 9
       },
@@ -1779,7 +1785,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "alias": "A",
@@ -1873,8 +1879,8 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 3,
-        "x": 19,
+        "w": 2,
+        "x": 18,
         "y": 9
       },
       "hideTimeOverride": true,
@@ -1894,7 +1900,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "alias": "A",
@@ -1979,7 +1985,7 @@
       "gridPos": {
         "h": 3,
         "w": 2,
-        "x": 22,
+        "x": 20,
         "y": 9
       },
       "id": 184,
@@ -1998,7 +2004,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.1.1",
       "targets": [
         {
           "datasource": {
@@ -2043,6 +2049,98 @@
         }
       ],
       "title": "Timestamp",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 22,
+        "y": 9
+      },
+      "id": 224,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^mqtt_consumer\\.last$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(system_state) FROM mqtt_consumer",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ]
+        }
+      ],
+      "title": "State",
       "transformations": [],
       "type": "stat"
     },
@@ -3484,6 +3582,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -3514,7 +3614,6 @@
           "decimals": 2,
           "links": [],
           "mappings": [],
-          "max": 10000,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -3687,6 +3786,21 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Speicher-Entladen"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
           }
         ]
       },
@@ -3708,7 +3822,8 @@
             "lastNotNull"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -4120,7 +4235,9 @@
             "uid": "${DS_SUN_AND MOON}"
           },
           "refId": "G",
-          "target": "sun_altitude"
+          "target": [
+            "sun_altitude"
+          ]
         }
       ],
       "title": "PV Leistung, PV-Prognose, Sonnenstand, Netz Leistung, Speicherleistung, Speicher SoC und Hausverbrauch",
@@ -4199,7 +4316,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.3.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4478,7 +4595,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.5",
+      "pluginVersion": "9.3.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4745,6 +4862,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -4833,7 +4952,8 @@
             "lastNotNull"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -5000,6 +5120,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -5076,7 +5198,8 @@
             "lastNotNull"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -5256,6 +5379,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -5351,7 +5476,8 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -5461,6 +5587,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -5567,7 +5695,8 @@
             "mean"
           ],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -5780,6 +5909,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -5855,7 +5986,8 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -5922,6 +6054,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -6027,7 +6161,8 @@
             "mean"
           ],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -6345,6 +6480,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -6408,7 +6545,8 @@
             "lastNotNull"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -6622,6 +6760,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "Laden/Entladen",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -6643,7 +6783,7 @@
             "spanNulls": true,
             "stacking": {
               "group": "A",
-              "mode": "none"
+              "mode": "normal"
             },
             "thresholdsStyle": {
               "mode": "off"
@@ -6843,7 +6983,8 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -7044,6 +7185,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -7105,8 +7248,9 @@
       "options": {
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
-          "placement": "bottom"
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
         },
         "tooltip": {
           "mode": "multi",
@@ -7157,6 +7301,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -7254,7 +7400,8 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -7363,6 +7510,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -7424,7 +7573,7 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 12,
+        "w": 8,
         "x": 0,
         "y": 108
       },
@@ -7439,7 +7588,8 @@
             "lastNotNull"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -7613,8 +7763,8 @@
       "fillGradient": 4,
       "gridPos": {
         "h": 9,
-        "w": 12,
-        "x": 12,
+        "w": 8,
+        "x": 8,
         "y": 108
       },
       "hiddenSeries": false,
@@ -7638,7 +7788,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.0",
+      "pluginVersion": "9.2.4",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -7834,6 +7984,239 @@
       }
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 2,
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Blindleistung"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "voltampreact"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 108
+      },
+      "id": 223,
+      "interval": "",
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "min",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.4.3",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "Phase 1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "10s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(phase_a_voltage) * mean(phase_a_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ]
+        },
+        {
+          "alias": "Phase 2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "10s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(phase_b_voltage)  * mean(phase_b_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ]
+        },
+        {
+          "alias": "Phase 3",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "10s"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "linear"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "mqtt_consumer",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(phase_c_voltage)  * mean(phase_c_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time(10s) fill(linear)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ]
+        }
+      ],
+      "title": "Netz-Leistung",
+      "type": "timeseries"
+    },
+    {
       "collapsed": false,
       "datasource": {
         "type": "influxdb",
@@ -7861,6 +8244,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -7919,7 +8304,8 @@
             "mean"
           ],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -8275,7 +8661,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.0",
+      "pluginVersion": "9.2.4",
       "targets": [
         {
           "datasource": {
@@ -8336,7 +8722,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.0",
+      "pluginVersion": "9.2.4",
       "targets": [
         {
           "alias": "Ersparnis",
@@ -8398,7 +8784,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.0",
+      "pluginVersion": "9.2.4",
       "targets": [
         {
           "alias": "Einspeisung",
@@ -8460,7 +8846,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.0",
+      "pluginVersion": "9.2.4",
       "targets": [
         {
           "alias": "Netzbezug",
@@ -8490,6 +8876,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -8612,7 +9000,8 @@
             "mean"
           ],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -8794,10 +9183,144 @@
         }
       ],
       "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 139
+      },
+      "id": 227,
+      "panels": [],
+      "title": "System Status",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Run": {
+                  "color": "green",
+                  "index": 0
+                },
+                "Standby": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Startup": {
+                  "color": "yellow",
+                  "index": 2
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 140
+      },
+      "id": 225,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.1.7",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT system_state FROM $rp.mqtt_consumer WHERE $timeFilter ",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "System state",
+      "transformations": [],
+      "type": "state-timeline"
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 36,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
