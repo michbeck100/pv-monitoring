@@ -88,24 +88,6 @@ services:
     labels:
       - "traefik.enable=false"
 
-  node-red:
-    build: node-red
-    container_name: node-red
-    restart: unless-stopped
-    environment:
-      - TZ=Europe/Berlin
-    ports:
-      - "1880:1880"
-    volumes:
-      - node-red:/data
-      - ./node-red/flows.json:/data/flows.json
-    networks:
-      - monitoring
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.node-red.rule=Host(`node-red.${HOST}`)"
-      - "traefik.http.services.node-red.loadbalancer.server.port=1880"
-
   sungather:
     image: michbeck100/sungather:latest
     container_name: sungather
@@ -186,10 +168,22 @@ services:
     volumes:
       - iobrokerdata:/opt/iobroker
 
+  pvforecast:
+    container_name: pvforecast
+    image: michbeck100/pvforecast
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - ./pvforecast/config.ini:/pvforecast/solcast_light_config.ini
+    depends_on:
+      - influxdb
+    networks:
+      - monitoring
+
 volumes:
   influxdb:
   grafana:
-  node-red:
   mosquitto-data:
   iobrokerdata:
 
