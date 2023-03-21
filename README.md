@@ -12,6 +12,7 @@ This setup uses
 - [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) (reads from mqtt and writes to influx)
 - [PVForecast](https://github.com/michbeck100/PVForecast) (processes pv forecast data from solcast)
 - [SunGather](https://sungather.app) (collects data from inverters using Modbus)
+- [modbus-proxy](https://pypi.org/project/modbus-proxy/) (proxies modbus connection to allow multiple connections to inverter)
 - [Mosquitto](https://mosquitto.org) (MQTT broker)
 - [evcc](https://evcc.io) (controls EV charger)
 
@@ -32,8 +33,14 @@ The dashboard uses different variables for calculating your costs and savings:
 
 The current setup assumes that it's running on an ARM based architecture. If you are using x86 hardware, make sure to use the official image as described [here](https://github.com/grafana/grafana-image-renderer#run-in-docker).
 
+### modbus-proxy
+For modbus connections to the inverter you must set the ip address at [modbus-proxy.yml](modbus-proxy%2Fmodbus-proxy.yml). 
+
+For non-modbus connections just remove the modbus-proxy part from [docker-compose.yml](docker-compose.yml#L91) and configure SunGather accordingly.
+
 ### SunGather
-You must set your inverters ip address at [sungather/config.yaml](sungather%2Fconfig.yaml). For additional configuration of SunGather please see the project website.
+If you don't use the modbus-proxy connection, you must set your inverters ip address at [sungather/config.yaml](sungather%2Fconfig.yaml) and set the connection type accordingly. 
+For additional configuration of SunGather please see the project website.
 
 ### evcc
 evcc is configured to get the inverter data by mqtt. So there is no change needed. 

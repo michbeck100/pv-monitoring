@@ -88,6 +88,18 @@ services:
     labels:
       - "traefik.enable=false"
 
+  modbus-proxy:
+    image: michbeck100/modbus-proxy
+    container_name: modbus-proxy
+    volumes:
+      - ./modbus-proxy/modbus-proxy.yml:/etc/modbus-proxy.yml
+    ports:
+      - "5020:502"
+    networks:
+      - monitoring
+    labels:
+      - "traefik.enable=false"
+
   sungather:
     image: michbeck100/sungather:latest
     container_name: sungather
@@ -98,6 +110,8 @@ services:
       - TZ=Europe/Berlin
     ports:
       - "8080:8080"
+    depends_on:
+      - modbus-proxy
     networks:
       - monitoring
     labels:

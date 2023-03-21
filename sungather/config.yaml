@@ -1,11 +1,11 @@
 inverter:
-  host: 192.168.178.86                       # [Required] IP Address of the Inverter or Dongle
+  host: modbus-proxy                      # [Required] IP Address of the Inverter or Dongle
   port: 502                               # [Optional] Default for modbus is 502, for http is 8082
   timeout: 5                              # [Optional] Default is 10, how long to wait for a connection
   retries: 3                              # [Optional] Default is 3, how many times to retry if connection fails
   slave: 0x01                             # [Optional] Default is 0x01
   scan_interval: 10                       # [Optional] Default is 30
-  connection: sungrow                     # [Required] options: modbus, sungrow, http
+  connection: modbus                      # [Required] options: modbus, sungrow, http
   # model: "SH10RT"                         # [Optional] This is autodetected on startup, only needed if detection issues or for testing
                                             # See model list here: https://github.com/bohdan-s/SunGather#supported
   smart_meter: True                       # [Optional] Default is False, Set to true if inverter supports reading grind / house consumption
