@@ -145,7 +145,7 @@ services:
     environment:
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
       - TZ=Europe/Berlin
-    image: andig/evcc:latest
+    image: evcc/evcc:latest
     ipc: private
     logging:
       driver: json-file
