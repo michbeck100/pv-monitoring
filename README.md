@@ -31,8 +31,6 @@ The dashboard uses different variables for calculating your costs and savings:
 - `strompreis`: your current grid price
 - `verguetung`: rate for feeding excess (pv) energy to the grid (german: Einspeisevergütung)
 
-The current setup assumes that it's running on an ARM based architecture. If you are using x86 hardware, make sure to use the official image as described [here](https://github.com/grafana/grafana-image-renderer#run-in-docker).
-
 ### modbus-proxy
 For modbus connections to the inverter you must set the ip address at [modbus-proxy.yml](modbus-proxy%2Fmodbus-proxy.yml). 
 
