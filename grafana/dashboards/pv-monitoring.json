@@ -1,87 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_INFLUXDB",
-      "label": "InfluxDB",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
-    },
-    {
-      "name": "DS_SUN_AND MOON",
-      "label": "Sun And Moon",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "fetzerch-sunandmoon-datasource",
-      "pluginName": "Sun and Moon"
-    },
-    {
-      "name": "VAR_STROMPREIS",
-      "type": "constant",
-      "label": "strompreis",
-      "value": "0.2941",
-      "description": ""
-    },
-    {
-      "name": "VAR_VERGUETUNG",
-      "type": "constant",
-      "label": "verguetung",
-      "value": "0.0711",
-      "description": ""
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "datasource",
-      "id": "fetzerch-sunandmoon-datasource",
-      "name": "Sun and Moon",
-      "version": "0.3.0"
-    },
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "9.1.1"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph (old)",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "influxdb",
-      "name": "InfluxDB",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "state-timeline",
-      "name": "State timeline",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -107,13 +24,16 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 187,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -126,7 +46,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -200,10 +123,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -246,7 +172,10 @@
       "type": "gauge"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -324,10 +253,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -369,7 +301,10 @@
       "type": "gauge"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -436,10 +371,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -481,7 +419,10 @@
       "type": "gauge"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -559,10 +500,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -604,7 +548,10 @@
       "type": "gauge"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -682,10 +629,13 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -727,7 +677,10 @@
       "type": "gauge"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -767,10 +720,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -812,7 +768,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -852,10 +811,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -897,7 +859,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [
@@ -977,10 +942,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1021,7 +989,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -1061,11 +1032,14 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
           "alias": "PV",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1108,7 +1082,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -1148,10 +1125,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1193,7 +1173,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1236,11 +1219,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
           "alias": "Entladung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "query": "SELECT 5120 * battery_level / 100 * 3600 / battery_power  FROM (SELECT last(battery_level) as battery_level, last(battery_power) as battery_power, last(battery_voltage) as battery_voltage, last(battery_current) as battery_current, last(state_battery_discharging) as battery_discharging FROM mqtt_consumer) where  battery_discharging = 1",
           "rawQuery": true,
           "refId": "A",
@@ -1248,7 +1234,10 @@
         },
         {
           "alias": "Ladung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT (5120 - 5120 * battery_level / 100) * 3600 / battery_power  FROM (SELECT last(battery_level) as battery_level, last(battery_power) as battery_power, last(battery_voltage) as battery_voltage, last(battery_current) as battery_current, last(state_battery_charging) as battery_charging FROM mqtt_consumer) where  battery_charging = 1",
           "rawQuery": true,
@@ -1261,7 +1250,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -1301,10 +1293,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1346,7 +1341,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -1386,10 +1384,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1431,7 +1432,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [
@@ -1508,10 +1512,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1552,7 +1559,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -1592,10 +1602,13 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1637,7 +1650,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -1686,11 +1702,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
           "alias": "A",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1745,7 +1764,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1795,11 +1817,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
           "alias": "A",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1854,7 +1879,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -1893,10 +1921,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -1939,7 +1970,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1979,10 +2013,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -2026,7 +2063,10 @@
     },
     {
       "collapsed": true,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2036,7 +2076,10 @@
       "id": 207,
       "panels": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2080,7 +2123,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "query": "SELECT last(battery_voltage) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
               "rawQuery": true,
               "refId": "A"
@@ -2090,7 +2136,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2134,7 +2183,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "query": "SELECT last(battery_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
               "rawQuery": true,
               "refId": "A"
@@ -2144,7 +2196,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2188,7 +2243,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "query": "SELECT last(battery_voltage) * last(battery_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval)  fill(previous)",
               "rawQuery": true,
               "refId": "A",
@@ -2199,7 +2257,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2243,7 +2304,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "query": "SELECT last(battery_state_of_healthy) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
               "rawQuery": true,
               "refId": "A",
@@ -2254,7 +2318,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "decimals": 2,
@@ -2296,7 +2363,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2345,7 +2415,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "decimals": 2,
@@ -2387,7 +2460,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2436,7 +2512,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "decimals": 2,
@@ -2478,7 +2557,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2527,7 +2609,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "mappings": [],
@@ -2591,7 +2676,10 @@
           "targets": [
             {
               "alias": "",
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2646,7 +2734,10 @@
     },
     {
       "collapsed": true,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2656,7 +2747,10 @@
       "id": 204,
       "panels": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "decimals": 3,
@@ -2698,7 +2792,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2747,7 +2844,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "decimals": 3,
@@ -2789,7 +2889,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2838,7 +2941,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "decimals": 3,
@@ -2881,7 +2987,10 @@
           "targets": [
             {
               "alias": "PV",
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2931,7 +3040,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "decimals": 3,
@@ -2973,7 +3085,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -3022,7 +3137,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "decimals": 3,
@@ -3064,7 +3182,10 @@
           "pluginVersion": "8.5.6",
           "targets": [
             {
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -3113,7 +3234,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "fieldConfig": {
             "defaults": {
               "mappings": [],
@@ -3177,7 +3301,10 @@
           "targets": [
             {
               "alias": "",
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -3227,7 +3354,10 @@
           "type": "stat"
         },
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "description": "",
           "fieldConfig": {
             "defaults": {
@@ -3280,7 +3410,10 @@
           "targets": [
             {
               "alias": "",
-              "datasource": "InfluxDB",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P951FEA4DE68E13C5"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -3340,7 +3473,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3616,7 +3752,10 @@
       "targets": [
         {
           "alias": "PV-Leistung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -3657,7 +3796,10 @@
         },
         {
           "alias": "Netz-Leistung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -3697,7 +3839,10 @@
         },
         {
           "alias": "Hausverbrauch",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -3737,7 +3882,10 @@
         },
         {
           "alias": "PV-Prognose",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -3783,7 +3931,10 @@
         },
         {
           "alias": "Speicher-Laden",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -3823,7 +3974,10 @@
         },
         {
           "alias": "Speicher-Entladen",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -3864,7 +4018,10 @@
         },
         {
           "alias": "Speicher-Leistung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -3905,7 +4062,10 @@
         },
         {
           "alias": "Überschuss",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -3945,7 +4105,10 @@
         },
         {
           "alias": "Speicher-SoC",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4013,7 +4176,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -4030,7 +4196,10 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "links": [],
@@ -4064,7 +4233,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.3.1",
+      "pluginVersion": "9.3.8",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4099,7 +4268,10 @@
       "targets": [
         {
           "alias": "Netzbezug",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4138,7 +4310,10 @@
         },
         {
           "alias": "Speicher entladen",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4177,7 +4352,10 @@
         },
         {
           "alias": "Hausverbrauch",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4297,7 +4475,10 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "links": [],
@@ -4331,7 +4512,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.3.1",
+      "pluginVersion": "9.3.8",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4366,7 +4547,10 @@
       "targets": [
         {
           "alias": "Netzeinspeisung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4406,7 +4590,10 @@
         },
         {
           "alias": "Speicher laden",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4445,7 +4632,10 @@
         },
         {
           "alias": "PV-Ertrag",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4563,7 +4753,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -4576,7 +4769,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4619,7 +4815,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -4686,7 +4883,10 @@
       "targets": [
         {
           "alias": "MPPT 1 Spannung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4726,7 +4926,10 @@
         },
         {
           "alias": "MPPT 2 Spannung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4766,7 +4969,10 @@
         },
         {
           "alias": "MPPT 1 Strom",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT mean(mppt_1_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
@@ -4774,7 +4980,10 @@
         },
         {
           "alias": "MPPT 2 Strom",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT mean(mppt_2_current) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
@@ -4819,7 +5028,10 @@
         "noDataState": "alerting",
         "notifications": []
       },
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4862,7 +5074,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -4917,7 +5130,10 @@
       "targets": [
         {
           "alias": "Gesamt",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4957,7 +5173,10 @@
         },
         {
           "alias": "MPPT 1",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -4997,7 +5216,10 @@
         },
         {
           "alias": "MPPT 2",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5037,7 +5259,10 @@
         },
         {
           "alias": "MPPT 1 + MPPT 2",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT mean(mppt_1_current) * mean(mppt_1_voltage) + mean(mppt_2_current) * mean(mppt_2_voltage) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
@@ -5046,7 +5271,10 @@
         },
         {
           "alias": "Alert",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": true,
           "query": "SELECT total_dc_power FROM mqtt_consumer where time > now() - 5m",
           "rawQuery": true,
@@ -5060,7 +5288,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -5102,7 +5333,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5176,7 +5408,10 @@
       "targets": [
         {
           "alias": "PV-Ertrag",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5215,7 +5450,10 @@
         },
         {
           "alias": "PV-Prognose",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5233,7 +5471,7 @@
           "hide": false,
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT sum(value2) from (SELECT sum(value1) /1000 as value2 from (SELECT mean(pv_estimate) / 2 as value1 FROM forever.solcast WHERE $timeFilter GROUP BY time(30m) fill(0)) WHERE $timeFilter GROUP by time(1d)) WHERE $timeFilter GROUP BY time($Gruppierung)",
+          "query": "SELECT sum(value2) from (SELECT sum(value1) /1000 as value2 from (SELECT mean(pv_estimate)  / 2 as value1 FROM forever.solcast WHERE $timeFilter GROUP BY time(30m) fill(0)) WHERE $timeFilter GROUP by time(1d)) WHERE $timeFilter GROUP BY time($Gruppierung)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -5258,7 +5496,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -5303,7 +5544,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5386,7 +5628,10 @@
       "targets": [
         {
           "alias": "PV-Leistung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5426,7 +5671,10 @@
         },
         {
           "alias": "Netzeinspeisung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5465,7 +5713,10 @@
         },
         {
           "alias": "Speicher Laden",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5553,7 +5804,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -5566,7 +5820,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -5607,7 +5864,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5662,7 +5920,10 @@
       "targets": [
         {
           "alias": "Hausverbrauch",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5704,7 +5965,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -5748,7 +6012,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5831,7 +6096,10 @@
       "targets": [
         {
           "alias": "Netzbezug",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5870,7 +6138,10 @@
         },
         {
           "alias": "Speicher Entladen",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5910,7 +6181,10 @@
         },
         {
           "alias": "Hausverbrauch",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -5998,7 +6272,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6116,7 +6393,10 @@
         "noDataState": "keep_state",
         "notifications": []
       },
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6159,7 +6439,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               },
               {
                 "color": "red",
@@ -6201,7 +6482,10 @@
       "targets": [
         {
           "alias": "Speicher",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6241,7 +6525,10 @@
         },
         {
           "alias": "Wechselrichter",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6281,7 +6568,10 @@
         },
         {
           "alias": "Wechselrichter",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6321,7 +6611,10 @@
         },
         {
           "alias": "Speicher",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6365,7 +6658,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6378,7 +6674,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6420,7 +6719,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6620,7 +6920,10 @@
       "targets": [
         {
           "alias": "durchschnittlicher Max-SoC",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6660,7 +6963,10 @@
         },
         {
           "alias": "durchschnittlicher Min-SoC",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6699,7 +7005,10 @@
         },
         {
           "alias": "Speicher Laden",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6744,7 +7053,10 @@
         },
         {
           "alias": "Speicher Entladen",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -6788,7 +7100,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6832,7 +7147,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red"
+                "color": "red",
+                "value": null
               },
               {
                 "color": "transparent",
@@ -6870,7 +7186,10 @@
       "pluginVersion": "8.4.3",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "query": "SELECT  mean(battery_power) * mean(state_battery_charging) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
           "refId": "A"
@@ -6881,7 +7200,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6895,7 +7217,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -6938,7 +7263,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -7013,7 +7339,10 @@
       "targets": [
         {
           "alias": "Netzeinspeisung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7053,7 +7382,10 @@
         },
         {
           "alias": "Netzbezug",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7095,7 +7427,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -7138,7 +7473,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -7193,7 +7529,10 @@
       "targets": [
         {
           "alias": "Phase 1",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7233,7 +7572,10 @@
         },
         {
           "alias": "Phase 2",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7273,7 +7615,10 @@
         },
         {
           "alias": "Phase 3",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7313,7 +7658,10 @@
         },
         {
           "alias": "Blindleistung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT mean(total_reactive_power) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
@@ -7329,7 +7677,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "links": []
@@ -7365,7 +7716,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.3.8",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -7383,7 +7734,10 @@
       "targets": [
         {
           "alias": "Phase 1",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7423,7 +7777,10 @@
         },
         {
           "alias": "Phase 2",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7463,7 +7820,10 @@
         },
         {
           "alias": "Phase 3",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7503,7 +7863,10 @@
         },
         {
           "alias": "Netzfrequenz",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT mean(grid_frequency) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": true,
@@ -7549,7 +7912,10 @@
       }
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -7592,7 +7958,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -7647,7 +8014,10 @@
       "targets": [
         {
           "alias": "Phase 1",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7687,7 +8057,10 @@
         },
         {
           "alias": "Phase 2",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7727,7 +8100,10 @@
         },
         {
           "alias": "Phase 3",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7771,7 +8147,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -7784,7 +8163,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -7826,7 +8208,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -7863,7 +8246,10 @@
       "targets": [
         {
           "alias": "Hausverbrauch",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7902,7 +8288,10 @@
         },
         {
           "alias": "Netzbezug",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7941,7 +8330,10 @@
         },
         {
           "alias": "PV",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -7980,7 +8372,10 @@
         },
         {
           "alias": "Netzeinspeisung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8138,7 +8533,10 @@
     },
     {
       "collapsed": false,
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -8151,7 +8549,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -8160,7 +8561,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green"
+                "color": "light-green",
+                "value": null
               }
             ]
           },
@@ -8190,10 +8592,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT (last(total_direct_energy_consumption) + last(total_battery_discharge_energy)) * $strompreis +  last(total_pv_export) * $verguetung FROM forever.mqtt_consumer ",
           "rawQuery": true,
@@ -8206,7 +8611,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -8215,7 +8623,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -8245,11 +8654,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
           "alias": "Ersparnis",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT (last(total_direct_energy_consumption) + last(total_battery_discharge_energy)) * $strompreis FROM forever.mqtt_consumer ",
           "rawQuery": true,
@@ -8262,7 +8674,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -8271,7 +8686,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -8301,11 +8717,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
           "alias": "Einspeisung",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT last(total_pv_export) * $verguetung FROM mqtt_consumer",
           "rawQuery": true,
@@ -8318,7 +8737,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -8327,7 +8749,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red"
+                "color": "red",
+                "value": null
               }
             ]
           },
@@ -8357,11 +8780,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.3.8",
       "targets": [
         {
           "alias": "Netzbezug",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "hide": false,
           "query": "SELECT last(total_import_energy) * $strompreis   FROM mqtt_consumer",
           "rawQuery": true,
@@ -8374,7 +8800,10 @@
       "type": "stat"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -8417,7 +8846,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -8517,7 +8947,10 @@
       "targets": [
         {
           "alias": "Hausverbrauch",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8556,7 +8989,10 @@
         },
         {
           "alias": "Netzbezug",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8595,7 +9031,10 @@
         },
         {
           "alias": "Einnahmen",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8694,7 +9133,10 @@
       "type": "row"
     },
     {
-      "datasource": "InfluxDB",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -8719,6 +9161,10 @@
                 "Startup": {
                   "color": "yellow",
                   "index": 2
+                },
+                "Stop": {
+                  "color": "blue",
+                  "index": 3
                 }
               },
               "type": "value"
@@ -8728,7 +9174,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -8765,7 +9212,10 @@
       "targets": [
         {
           "alias": "",
-          "datasource": "InfluxDB",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
           "groupBy": [
             {
               "params": [
@@ -8856,8 +9306,15 @@
         "type": "interval"
       },
       {
-        "current": {},
-        "datasource": "InfluxDB",
+        "current": {
+          "selected": false,
+          "text": "daily",
+          "value": "daily"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P951FEA4DE68E13C5"
+        },
         "definition": "select rp from forever.rp_config where time >= now() - ${__from}ms order by time asc limit 1",
         "description": "",
         "hide": 2,
@@ -8877,41 +9334,17 @@
         "description": "Aktueller Strompreis",
         "hide": 2,
         "name": "strompreis",
-        "query": "${VAR_STROMPREIS}",
+        "query": "0.2941",
         "skipUrlSync": false,
-        "type": "constant",
-        "current": {
-          "value": "${VAR_STROMPREIS}",
-          "text": "${VAR_STROMPREIS}",
-          "selected": false
-        },
-        "options": [
-          {
-            "value": "${VAR_STROMPREIS}",
-            "text": "${VAR_STROMPREIS}",
-            "selected": false
-          }
-        ]
+        "type": "constant"
       },
       {
         "description": "Einspeisevergütung",
         "hide": 2,
         "name": "verguetung",
-        "query": "${VAR_VERGUETUNG}",
+        "query": "0.0711",
         "skipUrlSync": false,
-        "type": "constant",
-        "current": {
-          "value": "${VAR_VERGUETUNG}",
-          "text": "${VAR_VERGUETUNG}",
-          "selected": false
-        },
-        "options": [
-          {
-            "value": "${VAR_VERGUETUNG}",
-            "text": "${VAR_VERGUETUNG}",
-            "selected": false
-          }
-        ]
+        "type": "constant"
       }
     ]
   },
@@ -8934,6 +9367,6 @@
   "timezone": "browser",
   "title": "PV-Monitoring",
   "uid": "l1PwaTigk",
-  "version": 14,
+  "version": 31,
   "weekStart": ""
 }
