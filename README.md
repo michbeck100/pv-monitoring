@@ -51,6 +51,12 @@ This monitoring solution also supports PV forecasts from [Solcast](https://toolk
 ## Traefik
 This setup adds labels to every container with a ui for [traefik](https://doc.traefik.io/traefik/). You only have to set your preferred host name in `traefik.http.routers.<CONTAINER>.rule=Host` in [docker-compose.yml](docker-compose.yml).
 
+### Sponsoring
+
+Do you like this plugin? Then consider a donation to support development.
+
+<span class="badge-paypal"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2T48JXA589B4Y" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
+
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
