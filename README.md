@@ -53,7 +53,7 @@ This setup adds labels to every container with a ui for [traefik](https://doc.tr
 
 ### Sponsoring
 
-Do you like this plugin? Then consider a donation to support development.
+Do you like this project? Then consider a donation to support development.
 
 <span class="badge-paypal"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2T48JXA589B4Y" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
 
