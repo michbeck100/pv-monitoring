@@ -22,7 +22,12 @@ Since the setup is using SunGather to read the modbus registers, currently only 
 ## Setup
 ### .env
 
-Copy `.env-sample` to `.env` and modify the variables before running docker compose.
+Optionally copy `.env-sample` to `.env` and modify the variables before running docker compose. 
+The variables are used in the docker-compose.yml. 
+
+The variable `HOST` contains the hostname of the system where all containers are running. 
+
+If you want to get an email from Grafana in case of alarms, modify the `GF_` variables. 
 
 ### Grafana 
 The default credentials for Grafana after first start are admin:admin. You can change the password after login.
@@ -49,7 +54,10 @@ But you must setup your wallbox according to https://docs.evcc.io/docs/devices/c
 This monitoring solution also supports PV forecasts from [Solcast](https://toolkit.solcast.com.au/live-forecast). To use it, create an account and update [config.ini](pvforecast%2Fconfig.ini) with your own site resource ids and API token.
 
 ## Traefik
-This setup adds labels to every container with a ui for [traefik](https://doc.traefik.io/traefik/). You only have to set your preferred host name in `traefik.http.routers.<CONTAINER>.rule=Host` in [docker-compose.yml](docker-compose.yml).
+This setup adds labels to every container with a UI for [traefik](https://doc.traefik.io/traefik/). 
+You only have to set your preferred host name in `traefik.http.routers.<CONTAINER>.rule=<HOST>` in [docker-compose.yml](docker-compose.yml).
+The value of `HOST` can be set in the `.env` file. For e.g. `HOST=example.com` Grafana would be accessible at http://grafana.example.com. 
+
 
 ### Sponsoring
 
