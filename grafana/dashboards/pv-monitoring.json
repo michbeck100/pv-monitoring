@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 187,
+  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -123,7 +123,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -253,7 +253,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -371,7 +371,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -500,7 +500,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -629,7 +629,7 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -653,7 +653,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(battery_level) FROM mqtt_consumer  fill(previous)",
+          "query": "SELECT last(battery_level) * last(max_soc) / 100 FROM mqtt_consumer  fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -720,7 +720,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -811,7 +811,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -942,7 +942,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1032,7 +1032,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "alias": "PV",
@@ -1125,7 +1125,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1219,7 +1219,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "alias": "Entladung",
@@ -1227,7 +1227,7 @@
             "type": "influxdb",
             "uid": "P951FEA4DE68E13C5"
           },
-          "query": "SELECT 5120 * battery_level / 100 * 3600 / battery_power  FROM (SELECT last(battery_level) as battery_level, last(battery_power) as battery_power, last(battery_voltage) as battery_voltage, last(battery_current) as battery_current, last(state_battery_discharging) as battery_discharging FROM mqtt_consumer) where  battery_discharging = 1",
+          "query": "SELECT $kapazitaet * battery_level / 100 * 3600 / battery_power  FROM (SELECT last(battery_level) as battery_level, last(battery_power) as battery_power, last(battery_voltage) as battery_voltage, last(battery_current) as battery_current, last(state_battery_discharging) as battery_discharging FROM mqtt_consumer) where  battery_discharging = 1",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -1239,7 +1239,7 @@
             "uid": "P951FEA4DE68E13C5"
           },
           "hide": false,
-          "query": "SELECT (5120 - 5120 * battery_level / 100) * 3600 / battery_power  FROM (SELECT last(battery_level) as battery_level, last(battery_power) as battery_power, last(battery_voltage) as battery_voltage, last(battery_current) as battery_current, last(state_battery_charging) as battery_charging FROM mqtt_consumer) where  battery_charging = 1",
+          "query": "SELECT ($kapazitaet - $kapazitaet * battery_level / 100) * 3600 / battery_power  FROM (SELECT last(battery_level) as battery_level, last(battery_power) as battery_power, last(battery_voltage) as battery_voltage, last(battery_current) as battery_current, last(state_battery_charging) as battery_charging FROM mqtt_consumer) where  battery_charging = 1",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series"
@@ -1293,7 +1293,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1384,7 +1384,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1512,7 +1512,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1602,7 +1602,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -1702,7 +1702,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "alias": "A",
@@ -1817,7 +1817,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "alias": "A",
@@ -1921,7 +1921,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -2013,7 +2013,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -2090,7 +2090,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -2120,7 +2121,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.6",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2150,7 +2151,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -2180,7 +2182,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.6",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2210,7 +2212,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -2240,7 +2243,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.6",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2271,7 +2274,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -2301,7 +2305,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.5.6",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2330,7 +2334,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -2360,7 +2365,7 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.6",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2427,7 +2432,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   }
                 ]
               },
@@ -2457,7 +2463,7 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.6",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2524,7 +2530,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -2554,7 +2561,7 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.6",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "datasource": {
@@ -2578,7 +2585,7 @@
               "measurement": "mqtt_consumer",
               "orderByTime": "ASC",
               "policy": "default",
-              "query": "SELECT last(total_battery_charge_from_pv) / 5.12 FROM forever.mqtt_consumer ",
+              "query": "SELECT last(total_battery_charge_from_pv) * 1000 / $kapazitaet FROM forever.mqtt_consumer ",
               "rawQuery": true,
               "refId": "A",
               "resultFormat": "time_series",
@@ -2622,7 +2629,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -2672,7 +2680,7 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.5.6",
+          "pluginVersion": "10.1.2",
           "targets": [
             {
               "alias": "",
@@ -3512,6 +3520,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -4126,7 +4135,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(battery_level) FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(battery_level) * mean(max_soc) / 100 FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "F",
           "resultFormat": "time_series",
@@ -4233,7 +4242,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4512,7 +4521,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -4792,6 +4801,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 1,
             "pointSize": 5,
@@ -4815,8 +4825,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5051,6 +5060,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -5074,8 +5084,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5311,6 +5320,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -5333,8 +5343,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5520,6 +5529,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -5544,8 +5554,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5843,6 +5852,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -5864,8 +5874,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5989,6 +5998,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -6012,8 +6022,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -6416,6 +6425,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -6439,8 +6449,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               },
               {
                 "color": "red",
@@ -6697,6 +6706,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -6719,8 +6729,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -7123,6 +7132,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
@@ -7147,8 +7157,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
-                "value": null
+                "color": "red"
               },
               {
                 "color": "transparent",
@@ -7240,6 +7249,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -7263,8 +7273,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -7450,6 +7459,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -7473,8 +7483,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -7716,7 +7725,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -7935,6 +7944,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -7958,8 +7968,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -8186,6 +8195,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "stepBefore",
             "lineWidth": 1,
             "pointSize": 5,
@@ -8208,8 +8218,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -8561,8 +8570,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
-                "value": null
+                "color": "light-green"
               }
             ]
           },
@@ -8592,7 +8600,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "datasource": {
@@ -8623,8 +8631,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -8654,7 +8661,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "alias": "Ersparnis",
@@ -8686,8 +8693,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -8717,7 +8723,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "alias": "Einspeisung",
@@ -8749,8 +8755,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
-                "value": null
+                "color": "red"
               }
             ]
           },
@@ -8780,7 +8785,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.3.8",
+      "pluginVersion": "10.1.2",
       "targets": [
         {
           "alias": "Netzbezug",
@@ -8823,6 +8828,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -8846,8 +8852,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -9051,7 +9056,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT sum(value) *0.0725 FROM (SELECT max(daily_pv_export) as value FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time(1d) fill(0)) GROUP BY time($Gruppierung) fill(null)",
+          "query": "SELECT sum(value) * $verguetung FROM (SELECT max(daily_pv_export) as value FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time(1d) fill(0)) GROUP BY time($Gruppierung) fill(null)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -9144,6 +9149,12 @@
           },
           "custom": {
             "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
             "lineWidth": 0,
             "spanNulls": false
           },
@@ -9161,10 +9172,6 @@
                 "Startup": {
                   "color": "yellow",
                   "index": 2
-                },
-                "Stop": {
-                  "color": "blue",
-                  "index": 3
                 }
               },
               "type": "value"
@@ -9174,8 +9181,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -9260,7 +9266,7 @@
     }
   ],
   "refresh": "10s",
-  "schemaVersion": 37,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -9345,6 +9351,14 @@
         "query": "0.0711",
         "skipUrlSync": false,
         "type": "constant"
+      },
+      {
+        "hide": 2,
+        "label": "Batteriekapazität",
+        "name": "kapazitaet",
+        "query": "5120",
+        "skipUrlSync": false,
+        "type": "constant"
       }
     ]
   },
@@ -9367,6 +9381,6 @@
   "timezone": "browser",
   "title": "PV-Monitoring",
   "uid": "l1PwaTigk",
-  "version": 31,
+  "version": 32,
   "weekStart": ""
 }
