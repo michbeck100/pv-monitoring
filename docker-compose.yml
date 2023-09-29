@@ -172,7 +172,7 @@ services:
     environment:
       - TZ=Europe/Berlin
     volumes:
-      - ./pvforecast/config.ini:/pvforecast/solcast_light_config.ini
+      - ./pvforecast/config.ini:/pvforecast/config.ini
     depends_on:
       - influxdb
     networks:
