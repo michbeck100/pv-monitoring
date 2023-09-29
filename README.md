@@ -51,7 +51,7 @@ evcc is configured to get the inverter data by mqtt. So there is no change neede
 But you must setup your wallbox according to https://docs.evcc.io/docs/devices/chargers in [evcc/evcc.yaml](evcc%2Fevcc.yaml).
 
 ## PV Forecasts
-This monitoring solution also supports PV forecasts from [Solcast](https://toolkit.solcast.com.au/live-forecast). To use it, create an account and update [config.ini](pvforecast%2Fconfig.ini) with your own site resource ids and API token.
+This monitoring solution also supports PV forecasts from [Solcast](https://toolkit.solcast.com.au). To use it, create an account and update [config.ini](pvforecast%2Fconfig.ini) with your own site resource ids and API token.
 
 ## Traefik
 This setup adds labels to every container with a UI for [traefik](https://doc.traefik.io/traefik/). 
