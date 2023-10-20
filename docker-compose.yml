@@ -37,7 +37,7 @@ services:
       - "traefik.http.services.grafana.loadbalancer.server.port=3000"
 
   renderer:
-    image: michbeck100/grafana-image-renderer
+    image: grafana/grafana-image-renderer
     container_name: renderer
     restart: unless-stopped
     expose:
