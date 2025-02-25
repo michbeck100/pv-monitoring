@@ -23,17 +23,12 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
-  "id": 187,
+  "graphTooltip": 2,
+  "id": 1,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -126,7 +121,7 @@
         "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -259,7 +254,7 @@
         "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -380,7 +375,7 @@
         "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -512,7 +507,7 @@
         "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -644,7 +639,7 @@
         "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -725,6 +720,7 @@
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -737,7 +733,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -761,7 +757,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(daily_pv_generation) FROM mqtt_consumer fill(previous)",
+          "query": "SELECT last(daily_pv_generation) FROM mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -781,7 +777,7 @@
           ]
         }
       ],
-      "title": "PV Ertrag heute",
+      "title": "PV Ertrag",
       "type": "stat"
     },
     {
@@ -818,6 +814,7 @@
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -830,7 +827,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -854,7 +851,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(daily_pv_export) FROM mqtt_consumer fill(previous)",
+          "query": "SELECT last(daily_pv_export) FROM mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -874,7 +871,7 @@
           ]
         }
       ],
-      "title": "Netzeinspeisung heute",
+      "title": "Netzeinspeisung",
       "type": "stat"
     },
     {
@@ -951,6 +948,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -963,7 +961,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -1007,6 +1005,7 @@
           ]
         }
       ],
+      "title": "",
       "type": "stat"
     },
     {
@@ -1043,6 +1042,7 @@
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1055,7 +1055,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "alias": "PV",
@@ -1080,7 +1080,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(daily_direct_energy_consumption) FROM mqtt_consumer fill(previous)",
+          "query": "SELECT last(daily_direct_energy_consumption) FROM mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1100,7 +1100,7 @@
           ]
         }
       ],
-      "title": "Direktverbrauch heute",
+      "title": "Direktverbrauch",
       "type": "stat"
     },
     {
@@ -1137,6 +1137,7 @@
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1149,7 +1150,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -1173,7 +1174,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(daily_battery_charge_from_pv) FROM mqtt_consumer",
+          "query": "SELECT last(daily_battery_charge_from_pv) FROM mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1193,7 +1194,7 @@
           ]
         }
       ],
-      "title": "Speicher Laden heute",
+      "title": "Speicher Laden",
       "type": "stat"
     },
     {
@@ -1233,6 +1234,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1245,7 +1247,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "alias": "Entladung",
@@ -1308,6 +1310,7 @@
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1320,7 +1323,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -1344,7 +1347,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(daily_battery_discharge_energy) FROM mqtt_consumer fill(previous)",
+          "query": "SELECT last(daily_battery_discharge_energy) FROM mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1364,7 +1367,7 @@
           ]
         }
       ],
-      "title": "Speicher Entladen heute",
+      "title": "Speicher Entladen",
       "type": "stat"
     },
     {
@@ -1401,6 +1404,7 @@
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1413,7 +1417,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -1437,7 +1441,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(daily_import_energy) FROM mqtt_consumer fill(previous)",
+          "query": "SELECT last(daily_import_energy) FROM mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1457,7 +1461,7 @@
           ]
         }
       ],
-      "title": "Netzbezug heute",
+      "title": "Netzbezug",
       "type": "stat"
     },
     {
@@ -1531,6 +1535,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1543,7 +1548,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -1587,6 +1592,7 @@
           ]
         }
       ],
+      "title": "",
       "type": "stat"
     },
     {
@@ -1623,6 +1629,7 @@
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1635,7 +1642,7 @@
         "textMode": "value",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -1659,7 +1666,7 @@
           "measurement": "mqtt_consumer",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT last(daily_direct_energy_consumption) + last(daily_battery_discharge_energy) + last(daily_import_energy) FROM mqtt_consumer fill(previous)",
+          "query": "SELECT last(daily_direct_energy_consumption) + last(daily_battery_discharge_energy) + last(daily_import_energy) FROM mqtt_consumer WHERE $timeFilter GROUP BY time($__interval) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1679,7 +1686,7 @@
           ]
         }
       ],
-      "title": "Hausverbrauch heute",
+      "title": "Hausverbrauch",
       "type": "stat"
     },
     {
@@ -1718,13 +1725,13 @@
         "x": 16,
         "y": 9
       },
-      "hideTimeOverride": true,
       "id": 92,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1737,7 +1744,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "alias": "A",
@@ -1762,7 +1769,7 @@
           "measurement": "solcast",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT (hausverbrauch - netzbezug) / hausverbrauch * 100 from (SELECT (last(daily_direct_energy_consumption) + last(daily_battery_discharge_energy) + last(daily_import_energy)) as hausverbrauch, last(daily_import_energy) as netzbezug FROM mqtt_consumer)",
+          "query": "SELECT (hausverbrauch - netzbezug) / hausverbrauch * 100 from (SELECT (last(daily_direct_energy_consumption) + last(daily_battery_discharge_energy) + last(daily_import_energy)) as hausverbrauch, last(daily_import_energy) as netzbezug FROM mqtt_consumer WHERE $timeFilter GROUP BY time($__interval))",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1835,13 +1842,13 @@
         "x": 18,
         "y": 9
       },
-      "hideTimeOverride": true,
       "id": 221,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1854,7 +1861,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "alias": "A",
@@ -1879,7 +1886,7 @@
           "measurement": "solcast",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT (PV - Netzeinspeisung) / PV * 100 FROM (SELECT last(daily_pv_generation) as PV, last(daily_pv_export) as Netzeinspeisung FROM $rp.mqtt_consumer)",
+          "query": "SELECT (PV - Netzeinspeisung) / PV * 100 FROM (SELECT last(daily_pv_generation) as PV, last(daily_pv_export) as Netzeinspeisung FROM $rp.mqtt_consumer WHERE $timeFilter GROUP BY time($__interval))",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1948,6 +1955,7 @@
         "graphMode": "area",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1960,7 +1968,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -2042,6 +2050,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2053,7 +2062,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "datasource": {
@@ -2102,10 +2111,6 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2788,10 +2793,6 @@
     },
     {
       "collapsed": true,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3453,7 +3454,6 @@
             "x": 22,
             "y": 14
           },
-          "hideTimeOverride": true,
           "id": 222,
           "options": {
             "colorMode": "value",
@@ -3539,10 +3539,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3571,6 +3567,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 30,
             "gradientMode": "opacity",
@@ -3821,9 +3818,7 @@
         "x": 0,
         "y": 15
       },
-      "hideTimeOverride": true,
       "id": 2,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -3841,8 +3836,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "8.4.3",
-      "repeatDirection": "h",
+      "pluginVersion": "11.4.0",
       "targets": [
         {
           "alias": "PV-Leistung",
@@ -4314,10 +4308,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -4377,8 +4367,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4710,8 +4699,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4999,10 +4987,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -5107,7 +5091,6 @@
         "y": 42
       },
       "id": 194,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -5126,7 +5109,6 @@
         }
       },
       "pluginVersion": "8.4.3",
-      "repeatDirection": "h",
       "targets": [
         {
           "alias": "MPPT 1 Spannung",
@@ -5241,40 +5223,6 @@
       "type": "timeseries"
     },
     {
-      "alert": {
-        "alertRuleTags": {},
-        "conditions": [
-          {
-            "evaluator": {
-              "params": [],
-              "type": "no_value"
-            },
-            "operator": {
-              "type": "and"
-            },
-            "query": {
-              "params": [
-                "E",
-                "1m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "last"
-            },
-            "type": "query"
-          }
-        ],
-        "executionErrorState": "alerting",
-        "for": "10s",
-        "frequency": "1m",
-        "handler": 1,
-        "message": "Keine Daten für mehr als 1 Minute",
-        "name": "No Data Alert",
-        "noDataState": "alerting",
-        "notifications": []
-      },
       "datasource": {
         "type": "influxdb",
         "uid": "P951FEA4DE68E13C5"
@@ -5355,7 +5303,6 @@
         "y": 42
       },
       "id": 195,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -5374,7 +5321,6 @@
         }
       },
       "pluginVersion": "8.4.3",
-      "repeatDirection": "h",
       "targets": [
         {
           "alias": "Gesamt",
@@ -5530,7 +5476,6 @@
           "resultFormat": "time_series"
         }
       ],
-      "thresholds": [],
       "title": "MPPT-Leistung",
       "type": "timeseries"
     },
@@ -6053,10 +5998,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6523,10 +6464,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6539,111 +6476,6 @@
       "type": "row"
     },
     {
-      "alert": {
-        "alertRuleTags": {},
-        "conditions": [
-          {
-            "evaluator": {
-              "params": [
-                60
-              ],
-              "type": "gt"
-            },
-            "operator": {
-              "type": "and"
-            },
-            "query": {
-              "params": [
-                "C",
-                "5m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "avg"
-            },
-            "type": "query"
-          },
-          {
-            "evaluator": {
-              "params": [
-                -25
-              ],
-              "type": "lt"
-            },
-            "operator": {
-              "type": "or"
-            },
-            "query": {
-              "params": [
-                "C",
-                "5m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "avg"
-            },
-            "type": "query"
-          },
-          {
-            "evaluator": {
-              "params": [
-                50
-              ],
-              "type": "gt"
-            },
-            "operator": {
-              "type": "or"
-            },
-            "query": {
-              "params": [
-                "D",
-                "5m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "avg"
-            },
-            "type": "query"
-          },
-          {
-            "evaluator": {
-              "params": [
-                -10
-              ],
-              "type": "lt"
-            },
-            "operator": {
-              "type": "or"
-            },
-            "query": {
-              "params": [
-                "D",
-                "5m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "avg"
-            },
-            "type": "query"
-          }
-        ],
-        "executionErrorState": "keep_state",
-        "for": "5m",
-        "frequency": "1m",
-        "handler": 1,
-        "message": "Wechselrichter oder Speicher Temperatur zu hoch/niedrig",
-        "name": "Temperatur Alarm",
-        "noDataState": "keep_state",
-        "notifications": []
-      },
       "datasource": {
         "type": "influxdb",
         "uid": "P951FEA4DE68E13C5"
@@ -6711,7 +6543,6 @@
         "y": 69
       },
       "id": 191,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -6730,7 +6561,6 @@
         }
       },
       "pluginVersion": "8.4.3",
-      "repeatDirection": "h",
       "targets": [
         {
           "alias": "Speicher",
@@ -6910,10 +6740,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -7454,10 +7280,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -7573,7 +7395,6 @@
         "y": 100
       },
       "id": 116,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -7761,7 +7582,6 @@
         "y": 108
       },
       "id": 5,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -7780,7 +7600,6 @@
         }
       },
       "pluginVersion": "8.4.3",
-      "repeatDirection": "h",
       "targets": [
         {
           "alias": "Phase 1",
@@ -8016,7 +7835,6 @@
         "y": 108
       },
       "id": 10,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -8035,7 +7853,6 @@
         }
       },
       "pluginVersion": "10.4.0",
-      "repeatDirection": "h",
       "targets": [
         {
           "alias": "Phase 1",
@@ -8262,7 +8079,6 @@
         "y": 108
       },
       "id": 223,
-      "interval": "",
       "options": {
         "legend": {
           "calcs": [
@@ -8281,7 +8097,6 @@
         }
       },
       "pluginVersion": "8.4.3",
-      "repeatDirection": "h",
       "targets": [
         {
           "alias": "Phase 1",
@@ -8418,10 +8233,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -8805,10 +8616,6 @@
     },
     {
       "collapsed": false,
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P951FEA4DE68E13C5"
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -9536,8 +9343,9 @@
       "type": "state-timeline"
     }
   ],
+  "preload": false,
   "refresh": "10s",
-  "schemaVersion": 39,
+  "schemaVersion": 40,
   "tags": [],
   "templating": {
     "list": [
@@ -9546,11 +9354,9 @@
         "auto_count": 30,
         "auto_min": "10s",
         "current": {
-          "selected": false,
           "text": "1d",
           "value": "1d"
         },
-        "hide": 0,
         "label": "Gruppierung in Langzeitgraphen",
         "name": "Gruppierung",
         "options": [
@@ -9575,15 +9381,12 @@
             "value": "1y"
           }
         ],
-        "query": "1d, 1w, 30d, 1y",
-        "queryValue": "",
+        "query": "1d,1w,30d,1y",
         "refresh": 2,
-        "skipUrlSync": false,
         "type": "interval"
       },
       {
         "current": {
-          "selected": false,
           "text": "daily",
           "value": "daily"
         },
@@ -9596,38 +9399,47 @@
         "hide": 2,
         "includeAll": false,
         "label": "Retention Policy",
-        "multi": false,
         "name": "rp",
         "options": [],
         "query": "select rp from forever.rp_config where time >= now() - ${__from}ms order by time asc limit 1",
         "refresh": 2,
         "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
         "type": "query"
       },
       {
+        "current": {
+          "text": "0.2941",
+          "value": "0.2941"
+        },
         "description": "Aktueller Strompreis",
         "hide": 2,
         "name": "strompreis",
         "query": "0.2941",
-        "skipUrlSync": false,
+        "skipUrlSync": true,
         "type": "constant"
       },
       {
+        "current": {
+          "text": "0.0854",
+          "value": "0.0854"
+        },
         "description": "Einspeisevergütung",
         "hide": 2,
         "name": "verguetung",
         "query": "0.0854",
-        "skipUrlSync": false,
+        "skipUrlSync": true,
         "type": "constant"
       },
       {
+        "current": {
+          "text": "7680",
+          "value": "7680"
+        },
         "hide": 2,
         "label": "Batteriekapazität",
         "name": "kapazitaet",
         "query": "7680",
-        "skipUrlSync": false,
+        "skipUrlSync": true,
         "type": "constant"
       }
     ]
@@ -9651,6 +9463,6 @@
   "timezone": "browser",
   "title": "PV-Monitoring",
   "uid": "l1PwaTigk",
-  "version": 46,
+  "version": 57,
   "weekStart": ""
 }
