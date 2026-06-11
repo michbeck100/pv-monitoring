@@ -25,6 +25,7 @@ services:
       - GF_SMTP_FROM_ADDRESS=${GF_SMTP_FROM_ADDRESS}
       - GF_RENDERING_SERVER_URL=http://renderer:8081/render
       - GF_RENDERING_CALLBACK_URL=http://grafana:3000/
+      - GF_RENDERING_RENDERER_TOKEN=your_custom_secret_token #eg. openssl rand -hex 32
       - GF_SERVER_DOMAIN=${HOST:-localhost}
       - GF_SERVER_ROOT_URL=http://${HOST:-localhost}:3000
       - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/var/lib/grafana/dashboards/pv-monitoring.json
@@ -43,6 +44,9 @@ services:
       - 8081
     networks:
       - monitoring
+    environment:
+      - AUTHORIZATION_TOKEN=your_custom_secret_token  # Must match Grafana's GF_RENDERING_RENDERER_TOKEN
+      - IGNORE_HTTPS_ERRORS=true  # Optional, depends on your setup
     labels:
       - "traefik.enable=false"
 
