@@ -45,7 +45,7 @@ services:
     networks:
       - monitoring
     environment:
-      - AUTHORIZATION_TOKEN=your_secure_random_token  # Must match Grafana's GF_RENDERING_RENDERER_TOKEN
+      - AUTHORIZATION_TOKEN=your_custom_secret_token  # Must match Grafana's GF_RENDERING_RENDERER_TOKEN
       - IGNORE_HTTPS_ERRORS=true  # Optional, depends on your setup
     labels:
       - "traefik.enable=false"
